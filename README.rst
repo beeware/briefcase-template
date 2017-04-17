@@ -17,8 +17,10 @@ Using this template
 
 3. Add your code to the project.
 
-4. Install `briefcase`_. This is the tool that will produce a version of your
-   project that can be deployed to specific platforms.
+4. Install `Briefcase`_. This is the tool that will produce a version of your
+   project that can be deployed to specific platforms::
+
+    $ pip install briefcase
 
 5. Use Briefcase to generate the artefacts for your platform of choice::
 
