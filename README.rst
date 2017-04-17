@@ -28,3 +28,5 @@ Using this template
     $ python setup.py windows
     $ python setup.py linux
 
+.. _cookiecutter: http://github.com/audreyr/cookiecutter
+.. _briefcase: http://github.com/pybee/briefcase
