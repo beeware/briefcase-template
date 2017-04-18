@@ -13,7 +13,7 @@ Using this template
 
 2. Run ``cookiecutter`` on the Python-Linux template::
 
-    $ cookiecutter https://github.com/pybee/briefcase-bootstrap
+    $ cookiecutter https://github.com/pybee/briefcase-template
 
 3. Add your code to the project.
 
