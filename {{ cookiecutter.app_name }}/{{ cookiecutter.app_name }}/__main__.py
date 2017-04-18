@@ -1,4 +1,4 @@
 from {{ cookiecutter.app_name }}.app import main
 
-if __name__ == '__main"__':
+if __name__ == '__main__':
     main().main_loop()
