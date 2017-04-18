@@ -29,6 +29,7 @@ Using this template
     $ python setup.py macos
     $ python setup.py windows
     $ python setup.py linux
+    $ python setup.py django
 
 .. _cookiecutter: http://github.com/audreyr/cookiecutter
 .. _briefcase: http://github.com/pybee/briefcase
