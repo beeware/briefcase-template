@@ -11,7 +11,7 @@ Using this template
 
     $ pip install cookiecutter
 
-2. Run ``cookiecutter`` on the Python-Linux template::
+2. Run ``cookiecutter`` on this template::
 
     $ cookiecutter https://github.com/pybee/briefcase-template
 
