@@ -6,8 +6,8 @@
     "author_email": "jane@example.com",
     "bundle": "com.example",
     "license": [
-        "MIT license",
         "BSD license",
+        "MIT license",
         "Apache Software License",
         "GNU General Public License v2 (GPLv2)",
         "GNU General Public License v2 or later (GPLv2+)",
