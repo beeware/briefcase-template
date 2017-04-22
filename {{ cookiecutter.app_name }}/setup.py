@@ -20,6 +20,7 @@ setup(
     name='{{ cookiecutter.app_name }}',
     version=version,
     description='{{ cookiecutter.description }}',
+    long_description=long_description,
     author='{{ cookiecutter.author }}',
     author_email='{{ cookiecutter.author_email }}',
     license='{{ cookiecutter.license }}',
