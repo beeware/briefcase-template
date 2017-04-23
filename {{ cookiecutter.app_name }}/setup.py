@@ -40,30 +40,36 @@ setup(
         # Desktop/laptop deployments
         'macos': {
             'app_requires': [
+                'toga-cocoa',
             ]
         },
         'linux': {
             'app_requires': [
+                'toga-gtk',
             ]
         },
         'windows': {
             'app_requires': [
+                'toga-winforms',
             ]
         },
 
         # Mobile deployments
         'ios': {
             'app_requires': [
+                'toga-ios',
             ]
         },
         'android': {
             'app_requires': [
+                'toga-android',
             ]
         },
 
         # Web deployments
         'django': {
             'app_requires': [
+                'toga-django',
             ]
         },
     }
