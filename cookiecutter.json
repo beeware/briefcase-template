@@ -14,5 +14,9 @@
         "GNU General Public License v3 (GPLv3)",
         "GNU General Public License v3 or later (GPLv3+)",
         "Other"
+    ],
+    "gui_framework": [
+        "Toga",
+        "None"
     ]
 }
