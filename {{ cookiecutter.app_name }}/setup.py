@@ -24,7 +24,14 @@ setup(
     author='{{ cookiecutter.author }}',
     author_email='{{ cookiecutter.author_email }}',
     license='{{ cookiecutter.license }}',
-    packages=find_packages(exclude=['docs', 'tests']),
+    packages=find_packages(
+        exclude=[
+            'docs', 'tests',
+            'windows', 'macOS', 'linux',
+            'iOS', 'android',
+            'django'
+        ]
+    ),
     classifiers=[
         'Development Status :: 1 - Planning',
         'License :: OSI Approved :: {{ cookiecutter.license }}',
