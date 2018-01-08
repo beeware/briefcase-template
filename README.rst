@@ -22,7 +22,7 @@ Using this template
 
     $ pip install briefcase
 
-5. Use Briefcase to generate the artefacts for your platform of choice::
+5. Use Briefcase to generate the artifacts for your platform of choice::
 
     $ python setup.py ios
     $ python setup.py android
