@@ -56,3 +56,11 @@ var/
 *.iws
 ## mpeltonen/sbt-idea plugin
 .idea_modules/
+
+# Briefcase build directories
+iOS/
+macOS/
+windows/
+android/
+linux/
+django/
