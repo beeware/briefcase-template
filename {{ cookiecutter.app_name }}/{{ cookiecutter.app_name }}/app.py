@@ -1,6 +1,7 @@
 {% set app_class_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','') %}
 {% if cookiecutter.gui_framework == 'Toga' %}import toga
 from toga.style import Pack
+from toga.style.pack import COLUMN, ROW
 
 
 class {{ app_class_name }}(toga.App):
@@ -16,6 +17,7 @@ class {{ app_class_name }}(toga.App):
 
         # Show the main window
         self.main_window.show()
+
 
 def main():
     return {{ app_class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
