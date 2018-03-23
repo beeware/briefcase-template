@@ -7,7 +7,7 @@ from toga.style.pack import COLUMN, ROW
 class {{ app_class_name }}(toga.App):
     def startup(self):
         # Create a main window with a name matching the app
-        self.main_window = toga.MainWindow(self.name)
+        self.main_window = toga.MainWindow(title=self.name)
 
         # Create a main content box
         main_box = toga.Box()
