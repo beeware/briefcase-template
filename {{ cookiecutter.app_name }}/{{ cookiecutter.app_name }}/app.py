@@ -23,6 +23,6 @@ def main():
     return {{ app_class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
 {% else %}
 def main():
-    # This needs to return an object that has a main_loop() method.
-    return None
+    # This should start and launch your app!
+    pass
 {% endif %}
