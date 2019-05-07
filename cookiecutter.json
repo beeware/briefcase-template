@@ -1,6 +1,6 @@
 {
-    "app_name": "appname",
-    "formal_name": "App Name",
+    "formal_name": "Hello World",
+    "app_name": "{{ cookiecutter.formal_name|lower|replace(' ', '') }}",
     "description": "An app that does lots of stuff",
     "author": "Jane Developer",
     "author_email": "jane@example.com",
