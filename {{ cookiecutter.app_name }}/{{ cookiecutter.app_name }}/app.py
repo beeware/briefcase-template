@@ -21,6 +21,23 @@ class {{ app_class_name }}(toga.App):
 
 def main():
     return {{ app_class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
+{% elif cookiecutter.gui_framework == 'PySide2' %}import sys
+from PySide2 import QtWidgets
+
+
+class MainWindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.init_ui()
+
+    def init_ui(self):
+        self.setWindowTitle('Hello World')
+        self.show()
+
+def main():
+    app = QtWidgets.QApplication(sys.argv)
+    main_window = MainWindow()
+    sys.exit(app.exec_())
 {% else -%}
 def main():
     # This should start and launch your app!

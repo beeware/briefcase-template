@@ -47,17 +47,20 @@ setup(
         # Desktop/laptop deployments
         'macos': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-cocoa==0.3.0.dev11',{% endif %}
+                'toga-cocoa==0.3.0.dev11',{% elif cookiecutter.gui_framework == 'PySide2' %}
+                'pyside2==5.13.0',{% endif %}
             ]
         },
         'linux': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-gtk==0.3.0.dev11',{% endif %}
+                'toga-gtk==0.3.0.dev11',{% elif cookiecutter.gui_framework == 'PySide2' %}
+                'pyside2==5.13.0',{% endif %}
             ]
         },
         'windows': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-winforms==0.3.0.dev11',{% endif %}
+                'toga-winforms==0.3.0.dev11',{% elif cookiecutter.gui_framework == 'PySide2' %}
+                'pyside2==5.13.0',{% endif %}
             ]
         },
 
