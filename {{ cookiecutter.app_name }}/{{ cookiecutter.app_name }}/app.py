@@ -25,7 +25,7 @@ def main():
 from PySide2 import QtWidgets
 
 
-class MainWindow(QtWidgets.QMainWindow):
+class {{ app_class_name }}(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.init_ui()
@@ -36,7 +36,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    main_window = MainWindow()
+    main_window = {{ app_class_name }}()
     sys.exit(app.exec_())
 {% else -%}
 def main():
