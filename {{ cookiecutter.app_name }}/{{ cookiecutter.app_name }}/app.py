@@ -31,7 +31,7 @@ class {{ app_class_name }}(QtWidgets.QMainWindow):
         self.init_ui()
 
     def init_ui(self):
-        self.setWindowTitle('Hello World')
+        self.setWindowTitle('{{ cookiecutter.app_name }}')
         self.show()
 
 def main():
