@@ -48,36 +48,36 @@ setup(
         # Desktop/laptop deployments
         'macos': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-cocoa==0.3.0.dev11',{% endif %}
+                'toga-cocoa==0.3.0.dev15',{% endif %}
             ]
         },
         'linux': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-gtk==0.3.0.dev11',{% endif %}
+                'toga-gtk==0.3.0.dev15',{% endif %}
             ]
         },
         'windows': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-winforms==0.3.0.dev11',{% endif %}
+                'toga-winforms==0.3.0.dev15',{% endif %}
             ]
         },
 
         # Mobile deployments
         'ios': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-ios==0.3.0.dev11',{% endif %}
+                'toga-ios==0.3.0.dev15',{% endif %}
             ]
         },
         'android': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-android==0.3.0.dev11',{% endif %}
+                'toga-android==0.3.0.dev15',{% endif %}
             ]
         },
 
         # Web deployments
         'django': {
             'app_requires': [{% if cookiecutter.gui_framework == 'Toga' %}
-                'toga-django==0.3.0.dev11',{% endif %}
+                'toga-django==0.3.0.dev15',{% endif %}
             ]
         },
     }
