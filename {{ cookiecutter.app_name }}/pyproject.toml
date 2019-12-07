@@ -1,0 +1,59 @@
+[build-system]
+requires = ["briefcase"]
+
+[tool.briefcase]
+project_name = "{{ cookiecutter.project_name }}"
+bundle = "{{ cookiecutter.bundle }}"
+version = "0.0.1"
+url = "{{ cookiecutter.url }}"
+license = "{{ cookiecutter.license }}"
+author = '{{ cookiecutter.author }}'
+author_email = "{{ cookiecutter.author_email }}"
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}]
+formal_name = "{{ cookiecutter.formal_name }}"
+description = "{{ cookiecutter.description }}"
+icon = "src/{{ cookiecutter.app_name }}/resources/{{ cookiecutter.app_name }}"
+sources = ['src/{{ cookiecutter.app_name }}']
+requires = [
+{%- if cookiecutter.gui_framework == 'PySide2' %}
+    'pyside2==5.13.0',
+{% endif -%}
+]
+
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.macOS]
+requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'toga-cocoa==0.3.0.dev15',
+{% endif -%}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
+requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'toga-gtk==0.3.0.dev15',
+{% endif -%}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
+requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'toga-winforms==0.3.0.dev15',
+{% endif -%}
+]
+
+# Mobile deployments
+[tool.briefcase.app.{{ cookiecutter.app_name }}.ios]
+requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'toga-ios==0.3.0.dev15',
+{% endif -%}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.android]
+requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'toga-android==0.3.0.dev15',
+{% endif -%}
+]

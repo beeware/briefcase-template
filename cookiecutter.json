@@ -1,10 +1,12 @@
 {
     "formal_name": "Hello World",
     "app_name": "{{ cookiecutter.formal_name|lower|replace(' ', '') }}",
+    "project_name": "{{ cookiecutter.formal_name }}",
     "description": "An app that does lots of stuff",
     "author": "Jane Developer",
     "author_email": "jane@example.com",
     "bundle": "com.example",
+    "url": "http://example.com",
     "license": [
         "BSD license",
         "MIT license",
