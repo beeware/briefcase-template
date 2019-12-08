@@ -13,7 +13,7 @@ Using this template
 
 2. Run ``cookiecutter`` on this template::
 
-    $ cookiecutter https://github.com/pybee/briefcase-template
+    $ cookiecutter https://github.com/beeware/briefcase-template
 
 3. Add your code to the project.
 
@@ -22,14 +22,15 @@ Using this template
 
     $ pip install briefcase
 
-5. Use Briefcase to generate the artifacts for your platform of choice::
+5. Use Briefcase to generate a project::
 
-    $ python setup.py ios
-    $ python setup.py android
-    $ python setup.py macos
-    $ python setup.py windows
-    $ python setup.py linux
-    $ python setup.py django
+    $ briefcase create
+    $ briefcase run
 
-.. _cookiecutter: http://github.com/audreyr/cookiecutter
-.. _briefcase: http://github.com/pybee/briefcase
+   To build for a mobile platform, add the platform name::
+
+    $ briefcase create iOS
+    $ briefcase run iOS
+
+.. _cookiecutter: http://github.com/cookiecutter/cookiecutter
+.. _briefcase: http://github.com/beeware/briefcase
