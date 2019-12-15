@@ -1,4 +1,4 @@
-from {{ cookiecutter.app_name }}.app import main
+from {{ cookiecutter.module_name }}.app import main
 
 if __name__ == '__main__':
 {%- if cookiecutter.gui_framework == 'Toga' %}

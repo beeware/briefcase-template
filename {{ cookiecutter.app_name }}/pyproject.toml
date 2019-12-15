@@ -14,7 +14,7 @@ author_email = "{{ cookiecutter.author_email }}"
 formal_name = "{{ cookiecutter.formal_name }}"
 description = "{{ cookiecutter.description }}"
 icon = "src/{{ cookiecutter.app_name }}/resources/{{ cookiecutter.app_name }}"
-sources = ['src/{{ cookiecutter.app_name }}']
+sources = ['src/{{ cookiecutter.module_name }}']
 requires = [
 {%- if cookiecutter.gui_framework == 'PySide2' %}
     'pyside2==5.13.0',
