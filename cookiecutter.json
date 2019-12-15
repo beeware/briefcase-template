@@ -1,6 +1,7 @@
 {
     "formal_name": "Hello World",
     "app_name": "{{ cookiecutter.formal_name|lower|replace(' ', '') }}",
+    "class_name": "{{ cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','') }}",
     "project_name": "Project Awesome",
     "description": "An app that does lots of stuff",
     "author": "Jane Developer",

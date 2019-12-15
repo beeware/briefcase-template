@@ -1,13 +1,13 @@
 """
 {{ cookiecutter.description }}
 """
-{% set app_class_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','') -%}
-{% if cookiecutter.gui_framework == 'Toga' %}import toga
+{% if cookiecutter.gui_framework == 'Toga' -%}
+import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 
 
-class {{ app_class_name }}(toga.App):
+class {{ class_name }}(toga.App):
 
     def startup(self):
         """
@@ -25,12 +25,13 @@ class {{ app_class_name }}(toga.App):
 
 
 def main():
-    return {{ app_class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
-{% elif cookiecutter.gui_framework == 'PySide2' %}import sys
+    return {{ class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
+{% elif cookiecutter.gui_framework == 'PySide2' -%}
+import sys
 from PySide2 import QtWidgets
 
 
-class {{ app_class_name }}(QtWidgets.QMainWindow):
+class {{ class_name }}(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.init_ui()
@@ -41,7 +42,7 @@ class {{ app_class_name }}(QtWidgets.QMainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    main_window = {{ app_class_name }}()
+    main_window = {{ class_name }}()
     sys.exit(app.exec_())
 {% else -%}
 def main():
