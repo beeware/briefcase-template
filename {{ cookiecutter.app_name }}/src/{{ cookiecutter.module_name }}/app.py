@@ -7,7 +7,7 @@ from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 
 
-class {{ class_name }}(toga.App):
+class {{ cookiecutter.class_name }}(toga.App):
 
     def startup(self):
         """
@@ -25,13 +25,13 @@ class {{ class_name }}(toga.App):
 
 
 def main():
-    return {{ class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
+    return {{ cookiecutter.class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
 {% elif cookiecutter.gui_framework == 'PySide2' -%}
 import sys
 from PySide2 import QtWidgets
 
 
-class {{ class_name }}(QtWidgets.QMainWindow):
+class {{ cookiecutter.class_name }}(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.init_ui()
@@ -42,7 +42,7 @@ class {{ class_name }}(QtWidgets.QMainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    main_window = {{ class_name }}()
+    main_window = {{ cookiecutter.class_name }}()
     sys.exit(app.exec_())
 {% else -%}
 def main():
