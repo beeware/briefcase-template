@@ -13,7 +13,7 @@ author_email = "{{ cookiecutter.author_email }}"
 [tool.briefcase.app.{{ cookiecutter.app_name }}]
 formal_name = "{{ cookiecutter.formal_name }}"
 description = "{{ cookiecutter.description }}"
-icon = "src/{{ cookiecutter.app_name }}/resources/{{ cookiecutter.app_name }}"
+icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
 sources = ['src/{{ cookiecutter.module_name }}']
 requires = [
 {%- if cookiecutter.gui_framework == 'PySide2' %}
