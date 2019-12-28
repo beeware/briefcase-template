@@ -25,21 +25,21 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.macOS]
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-cocoa==0.3.0.dev15',
+    'toga-cocoa==0.3.0.dev16',
 {% endif -%}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-gtk==0.3.0.dev15',
+    'toga-gtk==0.3.0.dev16',
 {% endif -%}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-winforms==0.3.0.dev15',
+    'toga-winforms==0.3.0.dev16',
 {% endif -%}
 ]
 
@@ -47,13 +47,13 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-iOS==0.3.0.dev15',
+    'toga-iOS==0.3.0.dev16',
 {% endif -%}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.android]
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-android==0.3.0.dev15',
+    'toga-android==0.3.0.dev16',
 {% endif -%}
 ]
