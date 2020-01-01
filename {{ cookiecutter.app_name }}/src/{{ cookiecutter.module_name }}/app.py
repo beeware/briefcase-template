@@ -19,13 +19,13 @@ class {{ cookiecutter.class_name }}(toga.App):
         """
         main_box = toga.Box()
 
-        self.main_window = toga.MainWindow(title=self.name)
+        self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
         self.main_window.show()
 
 
 def main():
-    return {{ cookiecutter.class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
+    return {{ cookiecutter.class_name }}()
 {% elif cookiecutter.gui_framework == 'PySide2' -%}
 import sys
 from PySide2 import QtWidgets
