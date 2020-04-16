@@ -47,15 +47,19 @@ def main():
 {% elif cookiecutter.gui_framework == 'PursuedPyBear' %}import ppb
 
 
-class {{ app_class_name }}Scene(ppb.BaseScene):
+class {{ cookiecutter.class_name }}(ppb.BaseScene):
     def __init__(self, **props):
         super().__init__(**props)
+
+        self.add(ppb.Sprite(
+            image=ppb.Image('{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}.png'),
+        ))
 
 
 def main():
     ppb.run(
-        starting_scene={{ app_class_name }}Scene,
-        title='{{ cookiecutter.app_name }}',
+        starting_scene={{ cookiecutter.class_name }},
+        title='{{ cookiecutter.formal_name }}',
     )
 {% else -%}
 def main():
