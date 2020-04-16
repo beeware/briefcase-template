@@ -44,6 +44,19 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     main_window = {{ cookiecutter.class_name }}()
     sys.exit(app.exec_())
+{% elif cookiecutter.gui_framework == 'PursuedPyBear' %}import ppb
+
+
+class {{ app_class_name }}Scene(ppb.BaseScene):
+    def __init__(self, **props):
+        super().__init__(**props)
+
+
+def main():
+    ppb.run(
+        starting_scene={{ app_class_name }}Scene,
+        title='{{ cookiecutter.app_name }}',
+    )
 {% else -%}
 def main():
     # This should start and launch your app!
