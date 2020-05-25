@@ -1,6 +1,3 @@
-[build-system]
-requires = ["briefcase", "setuptools", "wheel"]
-
 [tool.briefcase]
 project_name = "{{ cookiecutter.project_name }}"
 bundle = "{{ cookiecutter.bundle }}"
