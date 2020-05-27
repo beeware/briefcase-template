@@ -27,7 +27,7 @@ def _all_filenames(directory):
     filenames = []
     for root, _, files in os.walk(directory):
         for f in files:
-            if f"__pycache__" not in os.path.join(root, f):
+            if "__pycache__" not in os.path.join(root, f):
                 filenames.append(os.path.join(root, f))
     filenames.sort()
     return filenames
@@ -43,17 +43,17 @@ def test_parse_pyproject_toml(app_directory):
 
 def test_output_file_structure(app_directory):
     expected = [
-        "helloworld/LICENSE",
-        "helloworld/pyproject.toml",
-        "helloworld/.gitignore",
-        "helloworld/README.rst",
-        "helloworld/src/helloworld/__init__.py",
-        "helloworld/src/helloworld/app.py",
-        "helloworld/src/helloworld/__main__.py",
-        "helloworld/src/helloworld/resources/helloworld.png",
-        "helloworld/src/helloworld/resources/__init__.py",
-        "helloworld/src/helloworld/resources/helloworld.ico",
-        "helloworld/src/helloworld/resources/helloworld.icns",
+        "helloworld" + os.sep + "LICENSE",
+        "helloworld" + os.sep + "pyproject.toml",
+        "helloworld" + os.sep + ".gitignore",
+        "helloworld" + os.sep + "README.rst",
+        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "__init__.py",
+        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "app.py",
+        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "__main__.py",
+        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "helloworld.png",
+        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "__init__.py",
+        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "helloworld.ico",
+        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "helloworld.icns",
     ]
     expected = [os.path.join(app_directory, f) for f in expected]
     expected.sort()
