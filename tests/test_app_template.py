@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 import shutil
 
 from cookiecutter import main
@@ -11,8 +10,9 @@ import tomlkit
 
 @pytest.fixture(scope="session")
 def app_directory(tmpdir_factory):
-    output_dir = tmpdir_factory.mktemp("default-app")
-    CCDS_ROOT = Path(__file__).parents[1].resolve()
+    """Fixture for a default app."""
+    output_dir = str(tmpdir_factory.mktemp("default-app"))
+    CCDS_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     main.cookiecutter(
         str(CCDS_ROOT), no_input=True, output_dir=output_dir,
     )
@@ -34,7 +34,8 @@ def _all_filenames(directory):
 
 
 def test_parse_pyproject_toml(app_directory):
-    pyproject_toml = app_directory / "helloworld" / "pyproject.toml"
+    """Test for erros in parsing the generated pyproject.toml file."""
+    pyproject_toml = app_directory + os.sep + "helloworld" + os.sep + "pyproject.toml"
     assert os.path.exists(pyproject_toml)
     with open(pyproject_toml) as f:
         content = f.read()
@@ -42,6 +43,7 @@ def test_parse_pyproject_toml(app_directory):
 
 
 def test_output_file_structure(app_directory):
+    """Check the file tree structure generated is what we expect to see."""
     expected = [
         "helloworld" + os.sep + "LICENSE",
         "helloworld" + os.sep + "pyproject.toml",
@@ -55,13 +57,14 @@ def test_output_file_structure(app_directory):
         "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "helloworld.ico",
         "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "helloworld.icns",
     ]
-    expected = [os.path.join(app_directory, f) for f in expected]
+    expected = [os.path.join(str(app_directory), f) for f in expected]
     expected.sort()
     output = _all_filenames(app_directory)
     assert output == expected
 
 
 def test_flake8_app(app_directory):
+    """Check there are no flake8 errors in any of the generated python files"""
     files = [f for f in _all_filenames(app_directory) if f.endswith(".py")]
     style_guide = flake8.get_style_guide()
     report = style_guide.check_files(files)
