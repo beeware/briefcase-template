@@ -12,7 +12,7 @@ import tomlkit
 def app_directory(tmpdir_factory):
     """Fixture for a default app."""
     output_dir = str(tmpdir_factory.mktemp("default-app"))
-    CCDS_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    CCDS_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     main.cookiecutter(
         str(CCDS_ROOT), no_input=True, output_dir=output_dir,
     )
@@ -52,10 +52,42 @@ def test_output_file_structure(app_directory):
         "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "__init__.py",
         "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "app.py",
         "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "__main__.py",
-        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "helloworld.png",
-        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "__init__.py",
-        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "helloworld.ico",
-        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "resources" + os.sep + "helloworld.icns",
+        "helloworld"
+        + os.sep
+        + "src"
+        + os.sep
+        + "helloworld"
+        + os.sep
+        + "resources"
+        + os.sep
+        + "helloworld.png",
+        "helloworld"
+        + os.sep
+        + "src"
+        + os.sep
+        + "helloworld"
+        + os.sep
+        + "resources"
+        + os.sep
+        + "__init__.py",
+        "helloworld"
+        + os.sep
+        + "src"
+        + os.sep
+        + "helloworld"
+        + os.sep
+        + "resources"
+        + os.sep
+        + "helloworld.ico",
+        "helloworld"
+        + os.sep
+        + "src"
+        + os.sep
+        + "helloworld"
+        + os.sep
+        + "resources"
+        + os.sep
+        + "helloworld.icns",
     ]
     expected = [os.path.join(str(app_directory), f) for f in expected]
     expected.sort()
