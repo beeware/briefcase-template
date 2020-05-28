@@ -16,10 +16,7 @@ def app_directory(tmpdir_factory):
     main.cookiecutter(
         str(CCDS_ROOT), no_input=True, output_dir=output_dir,
     )
-    yield output_dir
-
-    # cleanup after
-    shutil.rmtree(output_dir)
+    return output_dir
 
 
 def _all_filenames(directory):
