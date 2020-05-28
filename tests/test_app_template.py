@@ -34,7 +34,7 @@ def _all_filenames(directory):
 
 
 def test_parse_pyproject_toml(app_directory):
-    """Test for erros in parsing the generated pyproject.toml file."""
+    """Test for errors in parsing the generated pyproject.toml file."""
     pyproject_toml = app_directory + os.sep + "helloworld" + os.sep + "pyproject.toml"
     assert os.path.exists(pyproject_toml)
     with open(pyproject_toml) as f:
