@@ -42,59 +42,6 @@ def test_parse_pyproject_toml(app_directory):
     tomlkit.parse(content)  # any error in parsing will trigger pytest
 
 
-def test_output_file_structure(app_directory):
-    """Check the file tree structure generated is what we expect to see."""
-    expected = [
-        "helloworld" + os.sep + "LICENSE",
-        "helloworld" + os.sep + "pyproject.toml",
-        "helloworld" + os.sep + ".gitignore",
-        "helloworld" + os.sep + "README.rst",
-        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "__init__.py",
-        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "app.py",
-        "helloworld" + os.sep + "src" + os.sep + "helloworld" + os.sep + "__main__.py",
-        "helloworld"
-        + os.sep
-        + "src"
-        + os.sep
-        + "helloworld"
-        + os.sep
-        + "resources"
-        + os.sep
-        + "helloworld.png",
-        "helloworld"
-        + os.sep
-        + "src"
-        + os.sep
-        + "helloworld"
-        + os.sep
-        + "resources"
-        + os.sep
-        + "__init__.py",
-        "helloworld"
-        + os.sep
-        + "src"
-        + os.sep
-        + "helloworld"
-        + os.sep
-        + "resources"
-        + os.sep
-        + "helloworld.ico",
-        "helloworld"
-        + os.sep
-        + "src"
-        + os.sep
-        + "helloworld"
-        + os.sep
-        + "resources"
-        + os.sep
-        + "helloworld.icns",
-    ]
-    expected = [os.path.join(str(app_directory), f) for f in expected]
-    expected.sort()
-    output = _all_filenames(app_directory)
-    assert output == expected
-
-
 def test_flake8_app(app_directory):
     """Check there are no flake8 errors in any of the generated python files"""
     files = [f for f in _all_filenames(app_directory) if f.endswith(".py")]
