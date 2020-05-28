@@ -5,7 +5,7 @@ from cookiecutter import main
 from flake8.api import legacy as flake8
 import py_compile
 import pytest
-import tomlkit
+import toml
 
 
 @pytest.fixture(scope="session")
@@ -34,9 +34,7 @@ def test_parse_pyproject_toml(app_directory):
     """Test for errors in parsing the generated pyproject.toml file."""
     pyproject_toml = app_directory + os.sep + "helloworld" + os.sep + "pyproject.toml"
     assert os.path.exists(pyproject_toml)
-    with open(pyproject_toml) as f:
-        content = f.read()
-    tomlkit.parse(content)  # any error in parsing will trigger pytest
+    toml.load(pyproject_toml)  # any error in parsing will trigger pytest
 
 
 def test_flake8_app(app_directory):
