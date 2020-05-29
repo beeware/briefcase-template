@@ -1,4 +1,4 @@
-import os
+import pathlib
 import shutil
 
 from cookiecutter import main
@@ -11,10 +11,11 @@ import toml
 @pytest.fixture(scope="session")
 def app_directory(tmpdir_factory):
     """Fixture for a default app."""
-    output_dir = str(tmpdir_factory.mktemp("default-app"))
-    CCDS_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    output_dir = tmpdir_factory.mktemp("default-app")
+    output_dir = pathlib.Path(str(output_dir)).resolve()
+    root_dir = pathlib.Path(__file__).parents[1].resolve()
     main.cookiecutter(
-        str(CCDS_ROOT), no_input=True, output_dir=output_dir,
+        str(root_dir), no_input=True, output_dir=str(output_dir),
     )
     return output_dir
 
@@ -22,18 +23,19 @@ def app_directory(tmpdir_factory):
 def _all_filenames(directory):
     """Return list of filenames in a directory, excluding __pycache__ files."""
     filenames = []
-    for root, _, files in os.walk(directory):
+    for root, _, files in pathlib.os.walk(str(directory)):
         for f in files:
-            if "__pycache__" not in os.path.join(root, f):
-                filenames.append(os.path.join(root, f))
+            full_filename = root+pathlib.os.sep+f
+            if "__pycache__" not in full_filename:
+                filenames.append(full_filename)
     filenames.sort()
     return filenames
 
 
 def test_parse_pyproject_toml(app_directory):
     """Test for errors in parsing the generated pyproject.toml file."""
-    pyproject_toml = app_directory + os.sep + "helloworld" + os.sep + "pyproject.toml"
-    assert os.path.exists(pyproject_toml)
+    pyproject_toml = app_directory/"helloworld"/"pyproject.toml"
+    assert pyproject_toml.is_file()  # check pyproject.toml exists
     toml.load(pyproject_toml)  # any error in parsing will trigger pytest
 
 
