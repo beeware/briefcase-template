@@ -7,13 +7,22 @@ import py_compile
 import pytest
 import toml
 
+TEST_CASES = [
+    {},  # use only the default briefcase-template values
+    {"gui_framework": "1"},  # Toga GUI framework
+    {"gui_framework": "2"},  # PySide2 GUI framework
+    {"gui_framework": "3"},  # PursuedPyBear GUI framework
+    {"gui_framework": "4"},  # "None" for GUI framework
+]
 
-@pytest.fixture(scope="session")
-def app_directory(tmpdir_factory):
+
+@pytest.fixture
+def app_directory(tmpdir_factory, args):
     """Fixture for a default app."""
+    print(args)
     output_dir = tmpdir_factory.mktemp("default-app")
     output_dir = pathlib.Path(str(output_dir)).resolve()
-    root_dir = pathlib.Path(__file__).parents[1].resolve()
+    root_dir = pathlib.Path(__file__).parent.parent.resolve()
     main.cookiecutter(
         str(root_dir), no_input=True, output_dir=str(output_dir),
     )
@@ -32,6 +41,7 @@ def _all_filenames(directory):
     return filenames
 
 
+@pytest.mark.parametrize('args', TEST_CASES)
 def test_parse_pyproject_toml(app_directory):
     """Test for errors in parsing the generated pyproject.toml file."""
     pyproject_toml = app_directory/"helloworld"/"pyproject.toml"
@@ -39,7 +49,8 @@ def test_parse_pyproject_toml(app_directory):
     toml.load(pyproject_toml)  # any error in parsing will trigger pytest
 
 
-def test_flake8_app(app_directory):
+@pytest.mark.parametrize('args', TEST_CASES)
+def test_flake8_app(app_directory, args):
     """Check there are no flake8 errors in any of the generated python files"""
     files = [f for f in _all_filenames(app_directory) if f.endswith(".py")]
     style_guide = flake8.get_style_guide()
@@ -47,7 +58,8 @@ def test_flake8_app(app_directory):
     assert report.get_statistics("E") == [], "Flake8 found violations"
 
 
-def test_files_compile(app_directory):
+@pytest.mark.parametrize('args', TEST_CASES)
+def test_files_compile(app_directory, args):
     files = [f for f in _all_filenames(app_directory) if f.endswith(".py")]
     for filename in files:
         # If there is a compilation error, pytest is triggered
