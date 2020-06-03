@@ -44,7 +44,7 @@
         "whose website is example.com, your bundle would be ``com.example``. ",
         "The bundle will be combined with your application's ",
         "machine readable name to form a complete application identifier ",
-        "(e.g., com.example.helloworld. "
+        "(e.g., com.example.helloworld). "
     ],
 
     "url": [
