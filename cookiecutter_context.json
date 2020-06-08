@@ -9,10 +9,11 @@
     "app_name": [
         "Next, we need a name that can serve as a machine-readable ",
         "Python package name for your application. ",
-        "This name must be PEP508-compliant - that means the name ",
-        "may only contain letters, numbers, hypehns and underscores; ",
-        "it can't contain spaces or punctuation, ",
-        "and it can't start with a hyphen or underscore. "
+        "\n",
+        "This name must be PEP508-compliant. This means the name: ",
+        " * may only contain letters, numbers, hyphens and underscores; ",
+        " * can't contain spaces or punctuation; and ",
+        " * can't start with a hyphen or underscore. "
     ],
     "project_name": [
         "Briefcase can manage projects that contain multiple applications, ",
