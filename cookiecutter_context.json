@@ -1,60 +1,61 @@
 {
     "formal_name": [
-        "First, we need a formal name for your application. ",
-        "This is the name that will be displayed to humans whenever the ",
-        "name of the application is displayed. It can have spaces and ",
-        "punctuation if you like, and any capitalization will be ",
-        "used as you type it. "
+        "First, we need a formal name for your application. This is the ",
+        "name that will be displayed to humans whenever the name of the ",
+        "application is displayed. It can have spaces and punctuation ",
+        "if you like, and any capitalization will be used as you type it."
     ],
     "app_name": [
-        "Next, we need a name that can serve as a machine-readable ",
-        "Python package name for your application. ",
-        "\n",
-        "This name must be PEP508-compliant. This means the name: ",
-        " * may only contain letters, numbers, hyphens and underscores; ",
-        " * can't contain spaces or punctuation; and ",
-        " * can't start with a hyphen or underscore. "
+        "Next, we need a name that can serve as a machine-readable Python",
+        "package name for your application.",
+        "",
+        "This name must be PEP508-compliant. This means the name:",
+        " * may only contain letters, numbers, hyphens and underscores;",
+        " * can't contain spaces or punctuation; and",
+        " * can't start with a hyphen or underscore."
     ],
     "project_name": [
-        "Briefcase can manage projects that contain multiple applications, ",
-        "so we need a Project name. ",
-        "If you're only planning to have one application in this project, ",
-        "you can use the formal name as the project name."
+        "Briefcase can manage projects that contain multiple applications",
+        "so we need a Project name. If you're only planning to have one",
+        "application in this project, you can use the formal name as the",
+        "project name."
     ],
     "description": [
-        "Now, we need a one line description for your application. "
+        "Now, we need a one line description for your application."
     ],
     "author": [
-        "Who do you want to be credited as the author of this application? ",
-        "This could be your own name, or the name of the company you work for."
+        "Who do you want to be credited as the author of the application?",
+        "This could be your own name, or the name of the company you work",
+        "for."
     ],
     "author_email": [
-        "What email address should people use to contact the developers ",
-        "of this application? This might be your own email address, ",
-        "or a generic contact address you set up specifically for this ",
+        "What email address should people use to contact the developers",
+        "of this application? This might be your own email address, or a",
+        "generic contact address you set up specifically for this",
         "application."
     ],
     "bundle": [
-        "Now we need a bundle identifier for your application. ",
-        "App stores need to protect against having multiple applications ",
-        "with the same name; the bundle identifier is the namespace they use ",
-        "to identify applications that come from you. ",
-        "The bundle identifier is usually the domain name of your company or ",
-        "project, in reverse order.\n",
-        "For example, if you are writing an application for Example Corp, ",
-        "whose website is example.com, your bundle would be ``com.example``. ",
-        "The bundle will be combined with your application's ",
-        "machine readable name to form a complete application identifier. "
+        "Now we need a bundle identifier for your application. App stores",
+        "need to protect against having multiple applications with the",
+        "same name; the bundle identifier is the namespace they use to",
+        "identify applications that come from you.The bundle identifier",
+        "is usually the domain name of your company or project, in",
+        "reverse order.",
+        "",
+        "For example, if you are writing an application for Example Corp,",
+        "with website is example.com, your bundle would be ``com.example``.",
+        "The bundle will be combined with your application's machine",
+        "readable name to form a complete application identifier."
     ],
 
     "url": [
-        "What is the website URL for this application? ",
-        "If you don't have a website set up yet, you can put in a dummy URL. "
+        "What is the website URL for this application? If you don't have",
+        "a website set up yet, you can put in a dummy URL."
     ],
     "license": [
-        "What license do you want to use for this project's code? "
+        "What license do you want to use for this project's code?"
     ],
     "gui_framework": [
-        "What GUI toolkit do you want to use for this project? "
+        "What GUI toolkit do you want to use for this project?"
     ]
 }
