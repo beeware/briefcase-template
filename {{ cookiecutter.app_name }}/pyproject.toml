@@ -16,7 +16,7 @@ requires = [
 {%- if cookiecutter.gui_framework == 'PySide2' %}
     'pyside2==5.13.0',
 {%- elif cookiecutter.gui_framework == 'PursuedPyBear' %}
-    'ppb~=0.8.0',
+    'ppb~=0.10.0',
 {% endif -%}
 ]
 
