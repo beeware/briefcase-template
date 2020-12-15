@@ -58,6 +58,9 @@ requires = [
     'toga-iOS>=0.3.0.dev20',
 {% endif -%}
 ]
+{%- if cookiecutter.gui_framework == 'PySide2' or cookiecutter.gui_framework == 'PursuedPyBear' %}
+supported = false
+{%- endif %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.android]
 requires = [
@@ -65,3 +68,6 @@ requires = [
     'toga-android>=0.3.0.dev20',
 {% endif -%}
 ]
+{%- if cookiecutter.gui_framework == 'PySide2' or cookiecutter.gui_framework == 'PursuedPyBear' %}
+supported = false
+{%- endif %}
