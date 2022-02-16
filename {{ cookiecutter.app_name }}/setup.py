@@ -37,7 +37,8 @@ setup(
         'License :: OSI Approved :: {{ cookiecutter.license }}',
     ],
     install_requires=[{% if cookiecutter.gui_framework == 'PySide2' %}
-        'pyside2==5.13.0',{% endif %}
+        'pyside2==5.15.2',{% endif %}{% if cookiecutter.gui_framework == 'PySide6' %}
+        'pyside6==6.2.3',{% endif %}
     ],
     options={
         'app': {

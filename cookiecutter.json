@@ -18,6 +18,7 @@
     "gui_framework": [
         "Toga",
         "PySide2",
+        "PySide6",
         "None"
     ]
 }
