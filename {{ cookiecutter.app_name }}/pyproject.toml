@@ -55,15 +55,19 @@ requires = [
 
 # Mobile deployments
 [tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
-requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-iOS>=0.3.0.dev32',
-{% endif -%}
+requires = [
+    'toga-iOS>=0.3.0.dev32'
 ]
+{%- else %}
+supported = false
+{%- endif %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.android]
-requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-android>=0.3.0.dev32',
-{% endif -%}
+requires = [
+    'toga-android>=0.3.0.dev32'
 ]
+{%- else %}
+supported = false
+{%- endif %}
