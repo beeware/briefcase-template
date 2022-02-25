@@ -1,7 +1,7 @@
-Briefcase Bootstrap template
-============================
+Briefcase v0.3 Bootstrap template
+=================================
 
-A template for starting a Python app that will be deployed using briefcase.
+A template for starting a Python app that will be deployed using Briefcase v0.3.
 
 Using this template
 -------------------
