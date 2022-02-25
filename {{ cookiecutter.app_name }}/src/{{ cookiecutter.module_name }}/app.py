@@ -26,7 +26,7 @@ class {{ cookiecutter.class_name }}(toga.App):
 
 def main():
     return {{ cookiecutter.class_name }}()
-{% elif cookiecutter.gui_framework == 'PySide2' -%}
+{% elif cookiecutter.gui_framework in ('PySide2', 'PySide6') -%}
 import sys
 
 try:
@@ -35,7 +35,7 @@ except ImportError:
     # Backwards compatibility - importlib.metadata was added in Python 3.8
     import importlib_metadata
 
-from PySide2 import QtWidgets
+from {{ cookiecutter.gui_framework }} import QtWidgets
 
 
 class {{ cookiecutter.class_name }}(QtWidgets.QMainWindow):
@@ -67,8 +67,12 @@ def main():
 
     app = QtWidgets.QApplication(sys.argv)
     main_window = {{ cookiecutter.class_name }}()
+    {%- if cookiecutter.gui_framework == 'PySide2' %}
     sys.exit(app.exec_())
-{% elif cookiecutter.gui_framework == 'PursuedPyBear' -%}
+    {%- else %}
+    sys.exit(app.exec())
+    {%- endif %}
+{%- elif cookiecutter.gui_framework == 'PursuedPyBear' %}
 import os
 import sys
 
@@ -81,7 +85,7 @@ except ImportError:
 import ppb
 
 
-class {{ cookiecutter.class_name }}(ppb.BaseScene):
+class {{ cookiecutter.class_name }}(ppb.Scene):
     def __init__(self, **props):
         super().__init__(**props)
 
