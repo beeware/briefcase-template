@@ -14,9 +14,11 @@ icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}
 sources = ['src/{{ cookiecutter.module_name }}']
 requires = [
 {%- if cookiecutter.gui_framework == 'PySide2' %}
-    'pyside2==5.13.0',
+    'pyside2==5.15.2',
+{%- elif cookiecutter.gui_framework == 'PySide6' %}
+    'pyside6==6.2.3',
 {%- elif cookiecutter.gui_framework == 'PursuedPyBear' %}
-    'ppb~=0.10.0',
+    'ppb~=1.1',
 {% endif -%}
 ]
 
@@ -24,14 +26,14 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.macOS]
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-cocoa>=0.3.0.dev20',
+    'toga-cocoa>=0.3.0.dev32',
 {% endif -%}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-gtk>=0.3.0.dev20',
+    'toga-gtk>=0.3.0.dev32',
 {% endif -%}
 ]
 system_requires = [
@@ -47,21 +49,25 @@ system_requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-winforms>=0.3.0.dev20',
+    'toga-winforms>=0.3.0.dev32',
 {% endif -%}
 ]
 
 # Mobile deployments
 [tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
 {%- if cookiecutter.gui_framework == 'Toga' %}
-requires = ['toga-iOS>=0.3.0.dev20']
+requires = [
+    'toga-iOS>=0.3.0.dev32'
+]
 {%- else %}
 supported = false
 {%- endif %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.android]
 {%- if cookiecutter.gui_framework == 'Toga' %}
-requires = ['toga-android>=0.3.0.dev20']
+requires = [
+    'toga-android>=0.3.0.dev32'
+]
 {%- else %}
 supported = false
 {%- endif %}
