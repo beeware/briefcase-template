@@ -11,8 +11,9 @@ TEST_CASES = [
     {},  # use only the default briefcase-template values
     {"gui_framework": "1"},  # Toga GUI framework
     {"gui_framework": "2"},  # PySide2 GUI framework
-    {"gui_framework": "3"},  # PursuedPyBear GUI framework
-    {"gui_framework": "4"},  # "None" for GUI framework
+    {"gui_framework": "3"},  # PySide6 GUI framework
+    {"gui_framework": "4"},  # PursuedPyBear GUI framework
+    {"gui_framework": "5"},  # "None" for GUI framework
 ]
 
 
