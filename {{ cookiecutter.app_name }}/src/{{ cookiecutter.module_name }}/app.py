@@ -51,7 +51,7 @@ def main():
 {% elif cookiecutter.gui_framework == 'PursuedPyBear' %}import ppb
 
 
-class {{ cookiecutter.class_name }}(ppb.BaseScene):
+class {{ cookiecutter.class_name }}(ppb.Scene):
     def __init__(self, **props):
         super().__init__(**props)
 
