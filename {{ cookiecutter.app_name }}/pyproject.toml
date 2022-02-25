@@ -14,7 +14,9 @@ icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}
 sources = ['src/{{ cookiecutter.module_name }}']
 requires = [
 {%- if cookiecutter.gui_framework == 'PySide2' %}
-    'pyside2==5.13.0',
+    'pyside2==5.15.2',
+{%- elif cookiecutter.gui_framework == 'PySide6' %}
+    'pyside6==6.2.3',
 {%- elif cookiecutter.gui_framework == 'PursuedPyBear' %}
     'ppb~=0.8.0',
 {% endif -%}
