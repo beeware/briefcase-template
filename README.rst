@@ -1,10 +1,12 @@
+**NOTE: This is very unlikely to be the template that you want.** The current
+release of Briefcase uses the branch of this repository whose name matches
+the release number of Briefcase itself - so, Briefcase v0.3 uses the
+`v0.3 branch <https://github.com/beeware/briefcase-template/tree/v0.3>`__ of
+this template.
+
 Briefcase v0.2 Bootstrap template
 =================================
 
-**NOTE: This is very unlikely to be the template that you want.** The current
-release of Briefcase uses a different branch of this repository as a template.
-
----
 
 A template for starting a Python app that will be deployed using Briefcase v0.2.
 
