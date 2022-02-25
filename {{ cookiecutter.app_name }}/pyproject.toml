@@ -19,7 +19,7 @@ requires = [
     'pyside6==6.2.3',
 {%- elif cookiecutter.gui_framework == 'PursuedPyBear' %}
     'ppb~=1.1',
-{% endif -%}
+{%- endif %}
 ]
 
 
