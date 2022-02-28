@@ -27,7 +27,8 @@ requires = [
 requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
     'toga-cocoa>=0.3.0.dev32',
-{% endif -%}
+{%- endif %}
+    'std-nslog==1.0.0'
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
@@ -57,7 +58,8 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
 {%- if cookiecutter.gui_framework == 'Toga' %}
 requires = [
-    'toga-iOS>=0.3.0.dev32'
+    'toga-iOS>=0.3.0.dev32',
+    'std-nslog==1.0.0'
 ]
 {%- else %}
 supported = false
