@@ -14,9 +14,9 @@ icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}
 sources = ['src/{{ cookiecutter.module_name }}']
 requires = [
 {%- if cookiecutter.gui_framework == 'PySide2' %}
-    'pyside2==5.15.2.1',
+    'pyside2>=5.15.2',
 {%- elif cookiecutter.gui_framework == 'PySide6' %}
-    'pyside6==6.3.0',
+    'pyside6>=6.2.4',
 {%- elif cookiecutter.gui_framework == 'PursuedPyBear' %}
     'ppb~=1.1',
 {%- endif %}
@@ -28,7 +28,7 @@ requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
     'toga-cocoa>=0.3.0.dev34',
 {%- endif %}
-    'std-nslog==1.0.0'
+    'std-nslog~=1.0.0'
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
@@ -59,7 +59,7 @@ requires = [
 {%- if cookiecutter.gui_framework == 'Toga' %}
 requires = [
     'toga-iOS>=0.3.0.dev34',
-    'std-nslog==1.0.0'
+    'std-nslog~=1.0.0'
 ]
 {%- else %}
 supported = false
