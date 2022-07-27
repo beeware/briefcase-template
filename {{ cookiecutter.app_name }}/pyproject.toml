@@ -57,7 +57,11 @@ linuxdeploy_plugins = [
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.flatpak]
-{%- if cookiecutter.gui_framework == 'PySide2' %}
+{%- if cookiecutter.gui_framework == 'Toga' %}
+flatpak_runtime = 'org.gnome.Platform'
+flatpak_runtime_version = '42'
+flatpak_sdk = 'org.gnome.Sdk'
+{%- elif cookiecutter.gui_framework == 'PySide2' %}
 flatpak_runtime = 'org.kde.Platform'
 flatpak_runtime_version = '6.3'
 flatpak_sdk = 'org.kde.Sdk'
@@ -66,7 +70,6 @@ flatpak_runtime = 'org.kde.Platform'
 flatpak_runtime_version = '6.3'
 flatpak_sdk = 'org.kde.Sdk'
 {%- endif %}
-
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
 requires = [
