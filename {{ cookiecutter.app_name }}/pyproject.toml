@@ -1,0 +1,75 @@
+[tool.briefcase]
+project_name = "{{ cookiecutter.project_name }}"
+bundle = "{{ cookiecutter.bundle }}"
+version = "0.0.1"
+url = "{{ cookiecutter.url }}"
+license = "{{ cookiecutter.license }}"
+author = '{{ cookiecutter.author }}'
+author_email = "{{ cookiecutter.author_email }}"
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}]
+formal_name = "{{ cookiecutter.formal_name }}"
+description = "{{ cookiecutter.description }}"
+icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
+sources = ['src/{{ cookiecutter.module_name }}']
+requires = [
+{%- if cookiecutter.gui_framework == 'PySide2' %}
+    'pyside2>=5.15.2',
+{%- elif cookiecutter.gui_framework == 'PySide6' %}
+    'pyside6>=6.2.4',
+{%- elif cookiecutter.gui_framework == 'PursuedPyBear' %}
+    'ppb~=1.1',
+{%- endif %}
+]
+
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.macOS]
+requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'toga-cocoa>=0.3.0.dev34',
+{%- endif %}
+    'std-nslog~=1.0.0'
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
+requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'toga-gtk>=0.3.0.dev34',
+{% endif -%}
+]
+system_requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'libgirepository1.0-dev',
+    'libcairo2-dev',
+    'libpango1.0-dev',
+    'libwebkitgtk-3.0-0',
+    'gir1.2-webkit-3.0',
+{% endif -%}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
+requires = [
+{%- if cookiecutter.gui_framework == 'Toga' %}
+    'toga-winforms>=0.3.0.dev34',
+{% endif -%}
+]
+
+# Mobile deployments
+[tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
+{%- if cookiecutter.gui_framework == 'Toga' %}
+requires = [
+    'toga-iOS>=0.3.0.dev34',
+    'std-nslog~=1.0.0'
+]
+{%- else %}
+supported = false
+{%- endif %}
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.android]
+{%- if cookiecutter.gui_framework == 'Toga' %}
+requires = [
+    'toga-android>=0.3.0.dev34'
+]
+{%- else %}
+supported = false
+{%- endif %}
