@@ -7,6 +7,6 @@ consider** `becoming a financial member of BeeWare`_.
 
 {{ cookiecutter.description }}
 
-.. _`Briefcase`: https://github.com/pybee/briefcase
-.. _`The BeeWare Project`: https://pybee.org/
-.. _`becoming a financial member of BeeWare`: https://pybee.org/contributing/membership
+.. _`Briefcase`: https://github.com/beeware/briefcase
+.. _`The BeeWare Project`: https://beeware.org/
+.. _`becoming a financial member of BeeWare`: https://beeware.org/contributing/membership

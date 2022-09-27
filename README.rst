@@ -1,42 +1,31 @@
-**NOTE: This is very unlikely to be the template that you want.** The current
-release of Briefcase uses the branch of this repository whose name matches
-the release number of Briefcase itself - so, Briefcase v0.3 uses the
-`v0.3 branch <https://github.com/beeware/briefcase-template/tree/v0.3>`__ of
-this template.
+Briefcase Bootstrap template
+============================
 
-Briefcase v0.2 Bootstrap template
-=================================
-
-
-A template for starting a Python app that will be deployed using Briefcase v0.2.
+A template for starting a Python app that will be deployed using Briefcase.
 
 Using this template
 -------------------
 
-1. Install `cookiecutter`_. This is a tool used to bootstrap complex project
-   templates::
+In normal usage, you won't need to reference this template at all - it is used
+automatically by Briefcase when you run ``briefcase new``.
+
+If you are developing a modification to this template and want to test it, you
+can tell Briefcase to use your own template by passing in the ``-t`` option::
+
+    $ briefcase new -t <path to checkout>
+
+Alternatively, if you want to test this template *without* using Briefcase,
+you can use `cookiecutter`_ directly.
+
+1. Install `cookiecutter`_::
 
     $ pip install cookiecutter
 
 2. Run ``cookiecutter`` on this template::
 
-    $ cookiecutter https://github.com/pybee/briefcase-template
+    $ cookiecutter https://github.com/beeware/briefcase-template
 
 3. Add your code to the project.
 
-4. Install `Briefcase`_. This is the tool that will produce a version of your
-   project that can be deployed to specific platforms::
-
-    $ pip install briefcase
-
-5. Use Briefcase to generate the artifacts for your platform of choice::
-
-    $ python setup.py ios
-    $ python setup.py android
-    $ python setup.py macos
-    $ python setup.py windows
-    $ python setup.py linux
-    $ python setup.py django
-
-.. _cookiecutter: http://github.com/audreyr/cookiecutter
-.. _briefcase: http://github.com/pybee/briefcase
+.. _cookiecutter: http://github.com/cookiecutter/cookiecutter
+.. _briefcase: http://github.com/beeware/briefcase
