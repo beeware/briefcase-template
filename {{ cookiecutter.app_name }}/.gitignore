@@ -66,4 +66,4 @@ linux/
 django/
 
 # Briefcase log files
-logs/briefcase.*.log
+logs/
