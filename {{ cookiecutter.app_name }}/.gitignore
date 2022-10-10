@@ -64,3 +64,6 @@ windows/
 android/
 linux/
 django/
+
+# Briefcase log files
+logs/
