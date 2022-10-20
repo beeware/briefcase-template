@@ -1,5 +1,5 @@
 """
-{{ cookiecutter.description }}
+{{ cookiecutter.description|escape_toml }}
 """
 {% if cookiecutter.gui_framework == 'Toga' -%}
 import toga
@@ -113,7 +113,7 @@ def main():
 
     ppb.run(
         starting_scene={{ cookiecutter.class_name }},
-        title='{{ cookiecutter.formal_name }}',
+        title=metadata['Formal-Name'],
     )
 {% else -%}
 def main():

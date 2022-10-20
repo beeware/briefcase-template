@@ -1,16 +1,16 @@
 # This project was generated using template: {{ cookiecutter.template }} and branch: {{ cookiecutter.branch }}
 [tool.briefcase]
-project_name = "{{ cookiecutter.project_name }}"
+project_name = "{{ cookiecutter.project_name|escape_toml }}"
 bundle = "{{ cookiecutter.bundle }}"
 version = "0.0.1"
 url = "{{ cookiecutter.url }}"
 license = "{{ cookiecutter.license }}"
-author = '{{ cookiecutter.author }}'
+author = "{{ cookiecutter.author }}"
 author_email = "{{ cookiecutter.author_email }}"
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}]
-formal_name = "{{ cookiecutter.formal_name }}"
-description = "{{ cookiecutter.description }}"
+formal_name = "{{ cookiecutter.formal_name|escape_toml }}"
+description = "{{ cookiecutter.description|escape_toml }}"
 icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
 sources = ['src/{{ cookiecutter.module_name }}']
 requires = [
