@@ -28,5 +28,8 @@
         "None"
     ],
     "template": "Not provided",
-    "branch": "Not provided"
+    "branch": "Not provided",
+    "_extensions": [
+        "briefcase.integrations.cookiecutter.TOMLEscape"
+    ]
 }
