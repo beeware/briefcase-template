@@ -9,18 +9,21 @@ import toml
 
 TEST_CASES = [
     {},  # use only the default briefcase-template values
+    # GUI framework options
     {"gui_framework": "1"},  # Toga GUI framework
     {"gui_framework": "2"},  # PySide2 GUI framework
     {"gui_framework": "3"},  # PySide6 GUI framework
     {"gui_framework": "4"},  # PursuedPyBear GUI framework
     {"gui_framework": "5"},  # "None" for GUI framework
+    # Test framework options
+    {"test_framework": "1"},  # pytest test framework
+    {"test_framework": "2"},  # unittest test framework
 ]
 
 
 @pytest.fixture
 def app_directory(tmpdir_factory, args):
     """Fixture for a default app."""
-    print(args)
     output_dir = tmpdir_factory.mktemp("default-app")
     output_dir = pathlib.Path(str(output_dir)).resolve()
     root_dir = pathlib.Path(__file__).parent.parent.resolve()
@@ -45,7 +48,7 @@ def _all_filenames(directory):
 @pytest.mark.parametrize('args', TEST_CASES)
 def test_parse_pyproject_toml(app_directory):
     """Test for errors in parsing the generated pyproject.toml file."""
-    pyproject_toml = app_directory/"helloworld"/"pyproject.toml"
+    pyproject_toml = app_directory / "helloworld" / "pyproject.toml"
     assert pyproject_toml.is_file()  # check pyproject.toml exists
     toml.load(pyproject_toml)  # any error in parsing will trigger pytest
 
