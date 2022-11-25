@@ -1,4 +1,4 @@
-{%- if cookiecutter.test_framework == 'pytest' %}
+{%- if cookiecutter.test_framework == 'pytest' -%}
 import os
 import sys
 import tempfile
@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 
-if __name__ == "__main__":
+def test_suite():
     project_path = Path(__file__).parent.parent
     os.chdir(project_path)
 
@@ -45,14 +45,14 @@ if __name__ == "__main__":
             project_path / "tests"
         ]
     )
-{%- elif cookiecutter.test_framework == "unittest" %}
+{%- elif cookiecutter.test_framework == "unittest" -%}
 import os
 import sys
 import unittest
 from pathlib import Path
 
 
-if __name__ == "__main__":
+def test_suite():
     project_path = Path(__file__).parent.parent
     os.chdir(project_path)
 
@@ -84,3 +84,7 @@ if __name__ == "__main__":
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
 {%- endif %}
+
+
+if __name__ == "__main__":
+    test_suite()
