@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 
-def test_suite():
+def run_tests():
     project_path = Path(__file__).parent.parent
     os.chdir(project_path)
 
@@ -52,7 +52,7 @@ import unittest
 from pathlib import Path
 
 
-def test_suite():
+def run_tests():
     project_path = Path(__file__).parent.parent
     os.chdir(project_path)
 
@@ -87,4 +87,4 @@ def test_suite():
 
 
 if __name__ == "__main__":
-    test_suite()
+    run_tests()
