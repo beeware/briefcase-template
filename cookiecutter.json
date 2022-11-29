@@ -27,6 +27,10 @@
         "PursuedPyBear",
         "None"
     ],
+    "test_framework": [
+        "pytest",
+        "unittest"
+    ],
     "template": "Not provided",
     "branch": "Not provided",
     "_extensions": [

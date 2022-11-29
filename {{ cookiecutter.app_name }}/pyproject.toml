@@ -12,93 +12,107 @@ author_email = "{{ cookiecutter.author_email }}"
 formal_name = "{{ cookiecutter.formal_name|escape_toml }}"
 description = "{{ cookiecutter.description|escape_toml }}"
 icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
-sources = ['src/{{ cookiecutter.module_name }}']
+sources = [
+    "src/{{ cookiecutter.module_name }}",
+]
+test_sources = [
+    "tests",
+]
+
 requires = [
-{%- if cookiecutter.gui_framework == 'PySide2' %}
-    'pyside2>=5.15.2',
-{%- elif cookiecutter.gui_framework == 'PySide6' %}
-    'pyside6>=6.2.4',
-{%- elif cookiecutter.gui_framework == 'PursuedPyBear' %}
-    'ppb~=1.1',
+{%- if cookiecutter.gui_framework == "PySide2" %}
+    "pyside2>=5.15.2",
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+    "pyside6>=6.2.4",
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+    "ppb~=1.1",
+{%- endif %}
+]
+test_requires = [
+{%- if cookiecutter.test_framework == "pytest" %}
+    "pytest",
 {%- endif %}
 ]
 
-
 [tool.briefcase.app.{{ cookiecutter.app_name }}.macOS]
 requires = [
-{%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-cocoa>=0.3.0.dev38',
+{%- if cookiecutter.gui_framework == "Toga" %}
+    "toga-cocoa>=0.3.0.dev38",
 {%- endif %}
-    'std-nslog~=1.0.0'
+    "std-nslog~=1.0.0"
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
 requires = [
-{%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-gtk>=0.3.0.dev38',
+{%- if cookiecutter.gui_framework == "Toga" %}
+    "toga-gtk>=0.3.0.dev38",
 {% endif -%}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.appimage]
 system_requires = [
-{%- if cookiecutter.gui_framework == 'Toga' %}
-    'gir1.2-webkit-3.0',
-    'libcairo2-dev',
-    'libgirepository1.0-dev',
-    'libgtk-3-dev',
-    'libpango1.0-dev',
-    'librsvg2-dev',
-    'libwebkitgtk-3.0-0',
+{%- if cookiecutter.gui_framework == "Toga" %}
+    "gir1.2-webkit-3.0",
+    "libcairo2-dev",
+    "libgirepository1.0-dev",
+    "libgtk-3-dev",
+    "libpango1.0-dev",
+    "librsvg2-dev",
+    "libwebkitgtk-3.0-0",
 {% endif -%}
 ]
 linuxdeploy_plugins = [
-{%- if cookiecutter.gui_framework == 'Toga' %}
-    'DEPLOY_GTK_VERSION=3 gtk',
+{%- if cookiecutter.gui_framework == "Toga" %}
+    "DEPLOY_GTK_VERSION=3 gtk",
 {% endif -%}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.flatpak]
-{%- if cookiecutter.gui_framework == 'Toga' %}
-flatpak_runtime = 'org.gnome.Platform'
-flatpak_runtime_version = '42'
-flatpak_sdk = 'org.gnome.Sdk'
-{%- elif cookiecutter.gui_framework in ['PySide2', 'PySide6'] %}
-flatpak_runtime = 'org.kde.Platform'
-flatpak_runtime_version = '6.3'
-flatpak_sdk = 'org.kde.Sdk'
+{%- if cookiecutter.gui_framework == "Toga" %}
+flatpak_runtime = "org.gnome.Platform"
+flatpak_runtime_version = "42"
+flatpak_sdk = "org.gnome.Sdk"
+{%- elif cookiecutter.gui_framework in ["PySide2", "PySide6"] %}
+flatpak_runtime = "org.kde.Platform"
+flatpak_runtime_version = "6.3"
+flatpak_sdk = "org.kde.Sdk"
 {%- endif %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
 requires = [
-{%- if cookiecutter.gui_framework == 'Toga' %}
-    'toga-winforms>=0.3.0.dev38',
+{%- if cookiecutter.gui_framework == "Toga" %}
+    "toga-winforms>=0.3.0.dev38",
 {% endif -%}
 ]
 
 # Mobile deployments
 [tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
-{%- if cookiecutter.gui_framework == 'Toga' %}
+{%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    'toga-iOS>=0.3.0.dev38',
-    'std-nslog~=1.0.0'
+    "toga-iOS>=0.3.0.dev38",
+    "std-nslog~=1.0.0"
 ]
 {%- else %}
 supported = false
 {%- endif %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.android]
-{%- if cookiecutter.gui_framework == 'Toga' %}
+{%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    'toga-android>=0.3.0.dev38'
+    "toga-android>=0.3.0.dev38"
 ]
 {%- else %}
 supported = false
 {%- endif %}
 
+build_gradle_extra_content = """
+android.defaultConfig.python.pyc.src false
+"""
+
 [tool.briefcase.app.{{ cookiecutter.app_name }}.web]
-{%- if cookiecutter.gui_framework == 'Toga' %}
+{%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    'toga-web>=0.3.0.dev38'
+    "toga-web>=0.3.0.dev38"
 ]
 style_framework = "Bootstrap v4.6"
 {%- else %}
