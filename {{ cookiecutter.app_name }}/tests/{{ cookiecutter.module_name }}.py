@@ -33,7 +33,7 @@ def run_tests():
         chaquopy_extract_package(tests)
     ##################################################################
 
-    result = pytest.main(
+    pytest.main(
         [
             # Turn up verbosity
             "-vv",
