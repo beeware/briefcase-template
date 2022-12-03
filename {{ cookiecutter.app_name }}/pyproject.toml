@@ -97,7 +97,9 @@ supported = false
 [tool.briefcase.app.{{ cookiecutter.app_name }}.web]
 {%- if cookiecutter.gui_framework == 'Toga' %}
 requires = [
-    'toga-web>=0.3.0.dev38'
+    # Workaround; toga-web 0.3.0.dev38 doesn't include toga-core as a dependency.
+    "toga-core>=0.3.0.dev38",
+    "toga-web>=0.3.0.dev38",
 ]
 style_framework = "Bootstrap v4.6"
 {%- else %}
