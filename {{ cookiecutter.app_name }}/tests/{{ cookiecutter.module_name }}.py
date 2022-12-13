@@ -33,7 +33,7 @@ def run_tests():
         chaquopy_extract_package(tests)
     ##################################################################
 
-    pytest.main(
+    returncode = pytest.main(
         [
             # Turn up verbosity
             "-vv",
@@ -82,8 +82,11 @@ def run_tests():
     loader = unittest.TestLoader()
     suite = loader.discover(project_path / "tests")
     runner = unittest.TextTestRunner(verbosity=2)
-    runner.run(suite)
+    result = runner.run(suite)
+    returncode = int(not result.wasSuccessful())
 {%- endif %}
+
+    print(f">>>>>>>>>> EXIT {returncode} <<<<<<<<<<")
 
 
 if __name__ == "__main__":
