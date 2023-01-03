@@ -52,13 +52,13 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.appimage]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "gir1.2-webkit-3.0",
+    "gir1.2-webkit2-4.0",
     "libcairo2-dev",
     "libgirepository1.0-dev",
     "libgtk-3-dev",
     "libpango1.0-dev",
     "librsvg2-dev",
-    "libwebkitgtk-3.0-0",
+    "libwebkitgtk2-4.0",
 {% endif -%}
 ]
 linuxdeploy_plugins = [
