@@ -74,7 +74,7 @@ jobs:
     - name: Create App
       run: |
         cd tests/apps
-        cat verify-${{ matrix.framework }}.config | briefcase new
+        cat verify-${{ matrix.framework }}.config | briefcase new --template ../../
     - name: Build App
       run: |
         cd tests/apps/verify-${{ matrix.framework }}
