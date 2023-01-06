@@ -10,7 +10,7 @@ jobs:
   unit-tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -58,7 +58,7 @@ jobs:
           ${{ matrix.briefcase-data-dir }}
           ${{ matrix.pip-cache-dir }}
           ${{ matrix.docker-cache-dir }}
-    - uses: actions/checkout@v3.1.0
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
     - name: Set up Python
