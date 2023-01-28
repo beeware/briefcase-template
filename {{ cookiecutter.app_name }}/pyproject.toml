@@ -105,10 +105,6 @@ requires = [
 supported = false
 {%- endif %}
 
-build_gradle_extra_content = """
-android.defaultConfig.python.pyc.src false
-"""
-
 [tool.briefcase.app.{{ cookiecutter.app_name }}.web]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
