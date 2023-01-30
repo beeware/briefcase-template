@@ -21,9 +21,9 @@ test_sources = [
 
 requires = [
 {%- if cookiecutter.gui_framework == "PySide2" %}
-    "pyside2>=5.15.2",
+    "pyside2~=5.15.2",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
-    "pyside6>=6.2.4",
+    "pyside6~=6.2.4",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
     "ppb~=1.1",
 {%- endif %}
@@ -37,7 +37,7 @@ test_requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.macOS]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-cocoa>=0.3.0.dev38",
+    "toga-cocoa~=0.3.0",
 {%- endif %}
     "std-nslog~=1.0.0"
 ]
@@ -45,7 +45,7 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-gtk>=0.3.0.dev38",
+    "toga-gtk~=0.3.0",
 {% endif -%}
 ]
 
@@ -81,7 +81,7 @@ flatpak_sdk = "org.kde.Sdk"
 [tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-winforms>=0.3.0.dev38",
+    "toga-winforms~=0.3.0",
 {% endif -%}
 ]
 
@@ -89,7 +89,7 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    "toga-iOS>=0.3.0.dev38",
+    "toga-iOS~=0.3.0",
     "std-nslog~=1.0.0"
 ]
 {%- else %}
@@ -99,18 +99,17 @@ supported = false
 [tool.briefcase.app.{{ cookiecutter.app_name }}.android]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    "toga-android>=0.3.0.dev38"
+    "toga-android~=0.3.0"
 ]
 {%- else %}
 supported = false
 {%- endif %}
 
+# Web deployments
 [tool.briefcase.app.{{ cookiecutter.app_name }}.web]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    # Workaround; toga-web 0.3.0.dev38 doesn't include toga-core as a dependency.
-    "toga-core>=0.3.0.dev38",
-    "toga-web>=0.3.0.dev38",
+    "toga-web~=0.3.0",
 ]
 style_framework = "Bootstrap v4.6"
 {%- else %}
