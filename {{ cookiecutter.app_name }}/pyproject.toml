@@ -23,7 +23,7 @@ requires = [
 {%- if cookiecutter.gui_framework == "PySide2" %}
     "pyside2~=5.15.2",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
-    "pyside6~=6.2.4",
+    "pyside6~=6.2",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
     "ppb~=1.1",
 {%- endif %}
