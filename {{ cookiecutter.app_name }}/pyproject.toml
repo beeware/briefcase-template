@@ -11,6 +11,8 @@ author_email = "{{ cookiecutter.author_email }}"
 [tool.briefcase.app.{{ cookiecutter.app_name }}]
 formal_name = "{{ cookiecutter.formal_name|escape_toml }}"
 description = "{{ cookiecutter.description|escape_toml }}"
+long_description = """More details about the app should go here.
+"""
 icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
 sources = [
     "src/{{ cookiecutter.module_name }}",
@@ -46,17 +48,21 @@ requires = [
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     "toga-gtk~=0.3.0",
-{% endif -%}
+{%- endif %}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.deb]
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.debian]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
     'libcairo2-dev',
     # Needed to compile PyGObject wheel
     'libgirepository1.0-dev',
-{% endif -%}
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
 ]
 
 system_runtime_requires = [
@@ -65,7 +71,65 @@ system_runtime_requires = [
     "libgtk-3-0",
     # Needed to provide WebKit2 at runtime
     "libwebkit2gtk-4.0-37",
-{% endif -%}
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.redhat]
+system_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to compile pycairo wheel
+    'cairo-gobject-devel',
+    # Needed to compile PyGObject wheel
+    'gobject-introspection-devel',
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+system_runtime_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to provide GTK
+    "gtk3",
+    # Needed to provide WebKit2 at runtime
+    "webkit2gtk3",
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.archlinux]
+system_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to compile pycairo wheel
+    'cairo',
+    # Needed to compile PyGObject wheel
+    'gobject-introspection',
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+system_runtime_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to provide GTK
+    "gtk",
+    # Needed to provide WebKit2 at runtime
+    "webkit2gtk",
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.appimage]
