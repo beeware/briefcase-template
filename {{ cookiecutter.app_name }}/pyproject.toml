@@ -58,8 +58,6 @@ system_requires = [
     'libcairo2-dev',
     # Needed to compile PyGObject wheel
     'libgirepository1.0-dev',
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-# ?? FIXME
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
@@ -85,8 +83,6 @@ system_requires = [
     'cairo-gobject-devel',
     # Needed to compile PyGObject wheel
     'gobject-introspection-devel',
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-# ?? FIXME
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
@@ -112,8 +108,6 @@ system_requires = [
     'cairo',
     # Needed to compile PyGObject wheel
     'gobject-introspection',
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-# ?? FIXME
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
