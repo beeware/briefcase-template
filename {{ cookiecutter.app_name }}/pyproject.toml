@@ -115,3 +115,11 @@ style_framework = "Bootstrap v4.6"
 {%- else %}
 supported = false
 {%- endif %}
+
+# 2023-02-26: This is a workaround for briefcase#1089/pyscript#1204.
+extra_pyscript_toml_content = """
+[[runtimes]]
+src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"
+name = "Python runtime"
+lang = "python"
+"""
