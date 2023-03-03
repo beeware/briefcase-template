@@ -76,7 +76,7 @@ system_runtime_requires = [
 {%- endif %}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.redhat]
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.rhel]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
@@ -101,7 +101,7 @@ system_runtime_requires = [
 {%- endif %}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.archlinux]
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.arch]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
