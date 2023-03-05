@@ -67,8 +67,12 @@ system_runtime_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to provide GTK
     "libgtk-3-0",
+    # Needed to provide GI bindings to GTK
+    "libgirepository-1.0-1",
+    "gir1.2-gtk-3.0",
     # Needed to provide WebKit2 at runtime
     "libwebkit2gtk-4.0-37",
+    "gir1.2-webkit2-4.0",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
 # ?? FIXME
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
