@@ -71,8 +71,8 @@ system_runtime_requires = [
     "libgirepository-1.0-1",
     "gir1.2-gtk-3.0",
     # Needed to provide WebKit2 at runtime
-    "libwebkit2gtk-4.0-37",
-    "gir1.2-webkit2-4.0",
+    # "libwebkit2gtk-4.0-37",
+    # "gir1.2-webkit2-4.0",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
 # ?? FIXME
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
@@ -97,7 +97,7 @@ system_runtime_requires = [
     # Needed to provide GTK
     "gtk3",
     # Needed to provide WebKit2 at runtime
-    "webkit2gtk3",
+    # "webkit2gtk3",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
 # ?? FIXME
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
@@ -122,7 +122,7 @@ system_runtime_requires = [
     # Needed to provide GTK
     "gtk",
     # Needed to provide WebKit2 at runtime
-    "webkit2gtk",
+    # "webkit2gtk",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
 # ?? FIXME
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
@@ -133,13 +133,14 @@ system_runtime_requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.appimage]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "gir1.2-webkit2-4.0",
     "libcairo2-dev",
     "libgirepository1.0-dev",
     "libgtk-3-dev",
     "libpango1.0-dev",
     "librsvg2-dev",
-    "libwebkit2gtk-4.0-dev",
+    # Needed to support Webkit2
+    # "gir1.2-webkit2-4.0",
+    # "libwebkit2gtk-4.0-dev",
 {% endif -%}
 ]
 linuxdeploy_plugins = [
