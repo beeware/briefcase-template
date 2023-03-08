@@ -25,6 +25,7 @@
         "PySide2",
         "PySide6",
         "PursuedPyBear",
+        "Pygame",
         "None"
     ],
     "test_framework": [

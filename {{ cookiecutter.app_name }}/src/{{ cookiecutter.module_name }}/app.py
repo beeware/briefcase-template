@@ -115,6 +115,48 @@ def main():
         starting_scene={{ cookiecutter.class_name }},
         title=metadata['Formal-Name'],
     )
+{%- elif cookiecutter.gui_framework == 'Pygame' %}
+import pygame
+import sys
+
+try:
+    from importlib import metadata as importlib_metadata
+except ImportError:
+    # Backwards compatibility - importlib.metadata was added in Python 3.8
+    import importlib_metadata
+
+
+SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
+WHITE = (255, 255, 255)
+FPS = 60
+
+
+def main():
+    # Find the name of the module that was used to start the app
+    app_module = sys.modules["__main__"].__package__
+    # Retrieve the app's metadata
+    metadata = importlib_metadata.metadata(app_module)
+
+    pygame.init()
+    pygame.display.set_caption(metadata["Formal-Name"])
+
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    clock = pygame.time.Clock()
+
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+                break
+
+        screen.fill(WHITE)
+        pygame.display.flip()
+
+        clock.tick(FPS)
+
+    pygame.quit()
+    sys.exit()
 {% else -%}
 def main():
     # This should start and launch your app!
