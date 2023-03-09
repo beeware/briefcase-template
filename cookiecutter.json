@@ -32,6 +32,7 @@
         "pytest",
         "unittest"
     ],
+    "briefcase_version": "Unknown",
     "template": "Not provided",
     "branch": "Not provided",
     "_extensions": [
