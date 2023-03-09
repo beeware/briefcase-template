@@ -1,4 +1,4 @@
-# This project was generated using template: {{ cookiecutter.template }} and branch: {{ cookiecutter.branch }}
+# This project was generated with {{ cookiecutter.briefcase_version }} using template: {{ cookiecutter.template }}@{{ cookiecutter.branch }}
 [tool.briefcase]
 project_name = "{{ cookiecutter.project_name|escape_toml }}"
 bundle = "{{ cookiecutter.bundle }}"
@@ -11,6 +11,8 @@ author_email = "{{ cookiecutter.author_email }}"
 [tool.briefcase.app.{{ cookiecutter.app_name }}]
 formal_name = "{{ cookiecutter.formal_name|escape_toml }}"
 description = "{{ cookiecutter.description|escape_toml }}"
+long_description = """More details about the app should go here.
+"""
 icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
 sources = [
     "src/{{ cookiecutter.module_name }}",
@@ -46,19 +48,131 @@ requires = [
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     "toga-gtk~=0.3.0",
-{% endif -%}
+{%- endif %}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.debian]
+system_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to compile pycairo wheel
+    'libcairo2-dev',
+    # Needed to compile PyGObject wheel
+    'libgirepository1.0-dev',
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+system_runtime_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to provide GTK
+    "libgtk-3-0",
+    # Needed to provide GI bindings to GTK
+    "libgirepository-1.0-1",
+    "gir1.2-gtk-3.0",
+    # Needed to provide WebKit2 at runtime
+    # "libwebkit2gtk-4.0-37",
+    # "gir1.2-webkit2-4.0",
+{%- elif cookiecutter.gui_framework == "PySide2" or cookiecutter.gui_framework == "PySide6" %}
+    # Derived from https://doc.qt.io/qt-6/linux-requirements.html
+    "libxrender1",
+    "libxcb-render0",
+    "libxcb-render-util0",
+    "libxcb-shape0",
+    "libxcb-randr0",
+    "libxcb-xfixes0",
+    "libxcb-xkb1",
+    "libxcb-sync1",
+    "libxcb-shm0",
+    "libxcb-icccm4",
+    "libxcb-keysyms1",
+    "libxcb-image0",
+    "libxcb-util1",
+    "libxkbcommon0",
+    "libxkbcommon-x11-0",
+    "libfontconfig1",
+    "libfreetype6",
+    "libxext6",
+    "libx11-6",
+    "libxcb1",
+    "libx11-xcb1",
+    "libsm6",
+    "libice6",
+    "libglib2.0-0",
+    "libgl1",
+    "libegl1-mesa",
+    "libdbus-1-3",
+    "libgssapi-krb5-2",
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.rhel]
+system_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to compile pycairo wheel
+    'cairo-gobject-devel',
+    # Needed to compile PyGObject wheel
+    'gobject-introspection-devel',
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+system_runtime_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to support Python bindings to GTK
+    "gobject-introspection",
+    # Needed to provide GTK
+    "gtk3",
+    # Needed to provide WebKit2 at runtime
+    # "webkit2gtk3",
+{%- elif cookiecutter.gui_framework == "PySide2" %}
+    "qt5-qtbase-gui",
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+    "qt6-qtbase-gui",
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.arch]
+system_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to compile pycairo wheel
+    'cairo',
+    # Needed to compile PyGObject wheel
+    'gobject-introspection',
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
+]
+
+system_runtime_requires = [
+{%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to provide GTK
+    "gtk",
+    # Needed to provide WebKit2 at runtime
+    # "webkit2gtk",
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.appimage]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "gir1.2-webkit2-4.0",
     "libcairo2-dev",
     "libgirepository1.0-dev",
     "libgtk-3-dev",
     "libpango1.0-dev",
     "librsvg2-dev",
-    "libwebkit2gtk-4.0-dev",
+    # Needed to support Webkit2
+    # "gir1.2-webkit2-4.0",
+    # "libwebkit2gtk-4.0-dev",
 {% endif -%}
 ]
 linuxdeploy_plugins = [
