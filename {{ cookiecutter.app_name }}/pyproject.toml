@@ -122,6 +122,8 @@ system_requires = [
 
 system_runtime_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to support Python bindings to GTK
+    "gobject-introspection",
     # Needed to provide GTK
     "gtk3",
     # Needed to provide WebKit2 at runtime
