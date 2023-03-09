@@ -27,7 +27,7 @@ requires = [
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
     "ppb~=1.1",
 {%- elif cookiecutter.gui_framework == "Pygame" %}
-    "pygame>=2.1"
+    "pygame~=2.2.0"
 {%- endif %}
 ]
 test_requires = [
