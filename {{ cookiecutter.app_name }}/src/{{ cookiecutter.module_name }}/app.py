@@ -162,7 +162,6 @@ def main():
         pygame.display.flip()
 
     pygame.quit()
-    sys.exit()
 {% else -%}
 def main():
     # This should start and launch your app!
