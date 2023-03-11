@@ -163,17 +163,25 @@ system_runtime_requires = [
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.appimage]
+manylinux = "manylinux2014"
+
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "libcairo2-dev",
-    "libgirepository1.0-dev",
-    "libgtk-3-dev",
-    "libpango1.0-dev",
-    "librsvg2-dev",
-    # Needed to support Webkit2
-    # "gir1.2-webkit2-4.0",
-    # "libwebkit2gtk-4.0-dev",
-{% endif -%}
+    # Needed to compile pycairo wheel
+    'cairo-gobject-devel',
+    # Needed to compile PyGObject wheel
+    'gobject-introspection-devel',
+    # Needed to provide GTK
+    "gtk3-devel",
+    # Needed to provide WebKit2 at runtime
+    # "webkit2gtk3",
+{%- elif cookiecutter.gui_framework == "PySide2" %}
+    "qt5-qtbase-gui",
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+    "qt6-qtbase-gui",
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
 ]
 linuxdeploy_plugins = [
 {%- if cookiecutter.gui_framework == "Toga" %}
