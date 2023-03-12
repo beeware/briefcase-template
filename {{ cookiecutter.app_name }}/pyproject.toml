@@ -55,9 +55,9 @@ requires = [
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
-    'libcairo2-dev',
+    "libcairo2-dev",
     # Needed to compile PyGObject wheel
-    'libgirepository1.0-dev',
+    "libgirepository1.0-dev",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
@@ -112,9 +112,9 @@ system_runtime_requires = [
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
-    'cairo-gobject-devel',
+    "cairo-gobject-devel",
     # Needed to compile PyGObject wheel
-    'gobject-introspection-devel',
+    "gobject-introspection-devel",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
@@ -141,9 +141,9 @@ system_runtime_requires = [
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
-    'cairo',
+    "cairo",
     # Needed to compile PyGObject wheel
-    'gobject-introspection',
+    "gobject-introspection",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
