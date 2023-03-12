@@ -168,9 +168,9 @@ manylinux = "manylinux2014"
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
-    'cairo-gobject-devel',
+    "cairo-gobject-devel",
     # Needed to compile PyGObject wheel
-    'gobject-introspection-devel',
+    "gobject-introspection-devel",
     # Needed to provide GTK
     "gtk3-devel",
     # Needed to provide WebKit2 at runtime
