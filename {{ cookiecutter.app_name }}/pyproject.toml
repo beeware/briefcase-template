@@ -142,10 +142,14 @@ system_runtime_requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.arch]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
+    # Needed to provide GTK for verification purposes
+    "gtk3",
     # Needed to compile pycairo wheel
-    'cairo',
+    "cairo",
     # Needed to compile PyGObject wheel
-    'gobject-introspection',
+    "gobject-introspection",
+    # Needed to provide WebKit2 at runtime
+    # "webkit2gtk",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
@@ -154,7 +158,9 @@ system_requires = [
 system_runtime_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to provide GTK
-    "gtk",
+    "gtk3",
+    # Needed to provide PyGObject bindings
+    "gobject-introspection-runtime",
     # Needed to provide WebKit2 at runtime
     # "webkit2gtk",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
