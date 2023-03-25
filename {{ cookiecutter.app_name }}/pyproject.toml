@@ -186,11 +186,11 @@ linuxdeploy_plugins = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.flatpak]
 {%- if cookiecutter.gui_framework == "Toga" %}
 flatpak_runtime = "org.gnome.Platform"
-flatpak_runtime_version = "42"
+flatpak_runtime_version = "44"
 flatpak_sdk = "org.gnome.Sdk"
 {%- elif cookiecutter.gui_framework in ["PySide2", "PySide6"] %}
 flatpak_runtime = "org.kde.Platform"
-flatpak_runtime_version = "6.3"
+flatpak_runtime_version = "6.4"
 flatpak_sdk = "org.kde.Sdk"
 {%- endif %}
 
