@@ -154,7 +154,7 @@ system_requires = [
     # Needed to provide WebKit2 at runtime
     # "webkit2gtk",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
-    "qt6base",
+    "qt6-base",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
@@ -172,7 +172,7 @@ system_runtime_requires = [
     # Needed to provide WebKit2 at runtime
     # "webkit2gtk",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
-    "qt6base",
+    "qt6-base",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
