@@ -142,16 +142,17 @@ system_runtime_requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.arch]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to provide GTK for verification purposes
-    "gtk3",
     # Needed to compile pycairo wheel
     "cairo",
     # Needed to compile PyGObject wheel
     "gobject-introspection",
-    # Dependencies that GTK looks for at runtime, that need to be
-    # in the build environment to be picked up by linuxdeploy
+    # Runtime dependencies that need to exist so that the
+    # Arch package passes final validation.
+    # Needed to provide GTK
+    "gtk3",
+    # Dependencies that GTK looks for at runtime
     "libcanberra",
-    # Needed to provide WebKit2 at runtime
+    # Needed to provide WebKit2
     # "webkit2gtk",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
     "qt6-base",
@@ -166,8 +167,7 @@ system_runtime_requires = [
     "gtk3",
     # Needed to provide PyGObject bindings
     "gobject-introspection-runtime",
-    # Dependencies that GTK looks for at runtime, that need to be
-    # in the build environment to be picked up by linuxdeploy
+    # Dependencies that GTK looks for at runtime
     "libcanberra",
     # Needed to provide WebKit2 at runtime
     # "webkit2gtk",
