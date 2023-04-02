@@ -179,17 +179,30 @@ system_runtime_requires = [
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.appimage]
+manylinux = "manylinux2014"
+
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "libcairo2-dev",
-    "libgirepository1.0-dev",
-    "libgtk-3-dev",
-    "libpango1.0-dev",
-    "librsvg2-dev",
-    # Needed to support Webkit2
-    # "gir1.2-webkit2-4.0",
-    # "libwebkit2gtk-4.0-dev",
-{% endif -%}
+    # Needed to compile pycairo wheel
+    "cairo-gobject-devel",
+    # Needed to compile PyGObject wheel
+    "gobject-introspection-devel",
+    # Needed to provide GTK
+    "gtk3-devel",
+    # Dependencies that GTK looks for at runtime, that need to be
+    # in the build environment to be picked up by linuxdeploy
+    "libcanberra-gtk3",
+    "PackageKit-gtk3-module",
+    "gvfs-client",
+    # Needed to provide WebKit2 at runtime
+    # "webkit2gtk3",
+{%- elif cookiecutter.gui_framework == "PySide2" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+# ?? FIXME
+{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
+# ?? FIXME
+{%- endif %}
 ]
 linuxdeploy_plugins = [
 {%- if cookiecutter.gui_framework == "Toga" %}
@@ -200,11 +213,11 @@ linuxdeploy_plugins = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux.flatpak]
 {%- if cookiecutter.gui_framework == "Toga" %}
 flatpak_runtime = "org.gnome.Platform"
-flatpak_runtime_version = "42"
+flatpak_runtime_version = "44"
 flatpak_sdk = "org.gnome.Sdk"
 {%- elif cookiecutter.gui_framework in ["PySide2", "PySide6"] %}
 flatpak_runtime = "org.kde.Platform"
-flatpak_runtime_version = "6.3"
+flatpak_runtime_version = "6.4"
 flatpak_sdk = "org.kde.Sdk"
 {%- endif %}
 
