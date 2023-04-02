@@ -31,12 +31,17 @@ jobs:
     needs: unit-tests
     uses: beeware/.github/.github/workflows/app-build-verify.yml@main
     with:
-      python-version: "3.9"
+      # This *must* be the version of Python that is the native system Python on
+      # ubuntu-22.04, which is needed to test local Debian packages. We use
+      # ubuntu-22.04 explicitly rather than ubuntu-latest because when
+      # ubuntu-latest upgrades to ubuntu-24.04, it will happen gradually, so the
+      # system Python version won't be predictable.
+      python-version: "3.10"
       briefcase-template-source: "../../"
       runner-os: ${{ matrix.runner-os }}
       framework: ${{ matrix.framework }}
     strategy:
       fail-fast: false
       matrix:
-        framework: [ "toga", "pyside2", "pyside6", "ppb" ]
-        runner-os: [ "macos-latest", "ubuntu-latest", "windows-latest" ]
+        framework: [ "toga", "pyside2", "pyside6", "ppb", "pygame" ]
+        runner-os: [ "macos-latest", "ubuntu-22.04", "windows-latest" ]

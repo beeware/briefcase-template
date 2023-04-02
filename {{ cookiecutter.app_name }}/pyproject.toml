@@ -28,6 +28,8 @@ requires = [
     "pyside6~=6.2",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
     "ppb~=1.1",
+{%- elif cookiecutter.gui_framework == "Pygame" %}
+    "pygame~=2.2.0"
 {%- endif %}
 ]
 test_requires = [
@@ -144,6 +146,16 @@ system_requires = [
     "cairo",
     # Needed to compile PyGObject wheel
     "gobject-introspection",
+    # Runtime dependencies that need to exist so that the
+    # Arch package passes final validation.
+    # Needed to provide GTK
+    "gtk3",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra",
+    # Needed to provide WebKit2
+    # "webkit2gtk",
+{%- elif cookiecutter.gui_framework == "PySide6" %}
+    "qt6-base",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
@@ -152,11 +164,15 @@ system_requires = [
 system_runtime_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to provide GTK
-    "gtk",
+    "gtk3",
+    # Needed to provide PyGObject bindings
+    "gobject-introspection-runtime",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra",
     # Needed to provide WebKit2 at runtime
     # "webkit2gtk",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
-# ?? FIXME
+    "qt6-base",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
 # ?? FIXME
 {%- endif %}
