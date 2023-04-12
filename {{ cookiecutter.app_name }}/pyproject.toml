@@ -41,7 +41,7 @@ test_requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.macOS]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-cocoa~=0.3.0",
+    "toga-cocoa~=0.3.1",
 {%- endif %}
     "std-nslog~=1.0.0"
 ]
@@ -49,7 +49,7 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-gtk~=0.3.0",
+    "toga-gtk~=0.3.1",
 {%- endif %}
 ]
 
@@ -224,7 +224,7 @@ flatpak_sdk = "org.kde.Sdk"
 [tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-winforms~=0.3.0",
+    "toga-winforms~=0.3.1",
 {% endif -%}
 ]
 
@@ -232,7 +232,7 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    "toga-iOS~=0.3.0",
+    "toga-iOS~=0.3.1",
     "std-nslog~=1.0.0"
 ]
 {%- else %}
@@ -242,7 +242,7 @@ supported = false
 [tool.briefcase.app.{{ cookiecutter.app_name }}.android]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    "toga-android~=0.3.0"
+    "toga-android~=0.3.1"
 ]
 {%- else %}
 supported = false
@@ -252,17 +252,9 @@ supported = false
 [tool.briefcase.app.{{ cookiecutter.app_name }}.web]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    "toga-web~=0.3.0",
+    "toga-web~=0.3.1",
 ]
-style_framework = "Bootstrap v4.6"
+style_framework = "Shoelace v2.3"
 {%- else %}
 supported = false
 {%- endif %}
-
-# 2023-02-26: This is a workaround for briefcase#1089/pyscript#1204.
-extra_pyscript_toml_content = """
-[[runtimes]]
-src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"
-name = "Python runtime"
-lang = "python"
-"""
