@@ -18,7 +18,7 @@ sources = [
     "{{ cookiecutter.source_dir }}",
 ]
 test_sources = [
-    "tests",
+    "{{ cookiecutter.test_source_dir }}",
 ]
 
 requires = [
