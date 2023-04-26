@@ -8,7 +8,7 @@ license = "{{ cookiecutter.license }}"
 author = "{{ cookiecutter.author }}"
 author_email = "{{ cookiecutter.author_email }}"
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}]
 formal_name = "{{ cookiecutter.formal_name|escape_toml }}"
 description = "{{ cookiecutter.description|escape_toml }}"
 long_description = """More details about the app should go here.
@@ -38,7 +38,7 @@ test_requires = [
 {%- endif %}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.macOS]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.macOS]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     "toga-cocoa~=0.3.1",
@@ -46,14 +46,14 @@ requires = [
     "std-nslog~=1.0.0"
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     "toga-gtk~=0.3.1",
 {%- endif %}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.debian]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.debian]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
@@ -110,7 +110,7 @@ system_runtime_requires = [
 {%- endif %}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.rhel]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.rhel]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
@@ -139,7 +139,7 @@ system_runtime_requires = [
 {%- endif %}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.system.arch]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.arch]
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     # Needed to compile pycairo wheel
@@ -178,7 +178,7 @@ system_runtime_requires = [
 {%- endif %}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.appimage]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.appimage]
 manylinux = "manylinux2014"
 
 system_requires = [
@@ -210,7 +210,7 @@ linuxdeploy_plugins = [
 {% endif -%}
 ]
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.linux.flatpak]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.flatpak]
 {%- if cookiecutter.gui_framework == "Toga" %}
 flatpak_runtime = "org.gnome.Platform"
 flatpak_runtime_version = "44"
@@ -221,7 +221,7 @@ flatpak_runtime_version = "6.4"
 flatpak_sdk = "org.kde.Sdk"
 {%- endif %}
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.windows]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.windows]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     "toga-winforms~=0.3.1",
@@ -229,7 +229,7 @@ requires = [
 ]
 
 # Mobile deployments
-[tool.briefcase.app.{{ cookiecutter.app_name }}.iOS]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.iOS]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
     "toga-iOS~=0.3.1",
@@ -239,7 +239,7 @@ requires = [
 supported = false
 {%- endif %}
 
-[tool.briefcase.app.{{ cookiecutter.app_name }}.android]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.android]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
     "toga-android~=0.3.1"
@@ -249,7 +249,7 @@ supported = false
 {%- endif %}
 
 # Web deployments
-[tool.briefcase.app.{{ cookiecutter.app_name }}.web]
+[tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.web]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
     "toga-web~=0.3.1",
