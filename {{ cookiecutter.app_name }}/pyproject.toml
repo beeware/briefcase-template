@@ -219,6 +219,10 @@ flatpak_sdk = "org.gnome.Sdk"
 flatpak_runtime = "org.kde.Platform"
 flatpak_runtime_version = "6.4"
 flatpak_sdk = "org.kde.Sdk"
+{%- else %}
+flatpak_runtime = "org.freedesktop.Platform"
+flatpak_runtime_version = "22.08"
+flatpak_sdk = "org.freedesktop.Sdk"
 {%- endif %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.windows]
