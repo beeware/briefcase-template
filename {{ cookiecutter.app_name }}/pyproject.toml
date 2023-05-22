@@ -16,6 +16,9 @@ long_description = """More details about the app should go here.
 icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
 sources = [
     "src/{{ cookiecutter.module_name }}",
+{%- if cookiecutter.gui_framework == "PositronDjango" %}
+    "src/webapp",
+{%- endif %}
 ]
 test_sources = [
     "tests",
