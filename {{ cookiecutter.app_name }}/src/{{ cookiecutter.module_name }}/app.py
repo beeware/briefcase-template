@@ -164,6 +164,7 @@ def main():
     pygame.quit()
 {% elif cookiecutter.gui_framework in ('PositronDjango', 'PositronStatic') -%}
 {%- if cookiecutter.gui_framework == 'PositronDjango' %}
+import os
 import socketserver
 from threading import Event, Thread
 from wsgiref.simple_server import WSGIServer
