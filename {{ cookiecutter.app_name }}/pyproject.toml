@@ -42,7 +42,7 @@ test_requires = [
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.macOS]
 requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     "toga-cocoa~=0.3.1",
 {%- endif %}
     "std-nslog~=1.0.0"
@@ -50,14 +50,14 @@ requires = [
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux]
 requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     "toga-gtk~=0.3.1",
 {%- endif %}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.debian]
 system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     # Needed to compile pycairo wheel
     "libcairo2-dev",
     # Needed to compile PyGObject wheel
@@ -68,7 +68,7 @@ system_requires = [
 ]
 
 system_runtime_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     # Needed to provide GTK
     "libgtk-3-0",
     # Needed to provide GI bindings to GTK
@@ -114,7 +114,7 @@ system_runtime_requires = [
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.rhel]
 system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     # Needed to compile pycairo wheel
     "cairo-gobject-devel",
     # Needed to compile PyGObject wheel
@@ -125,7 +125,7 @@ system_requires = [
 ]
 
 system_runtime_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     # Needed to support Python bindings to GTK
     "gobject-introspection",
     # Needed to provide GTK
@@ -143,7 +143,7 @@ system_runtime_requires = [
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.arch]
 system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     # Needed to compile pycairo wheel
     "cairo",
     # Needed to compile PyGObject wheel
@@ -164,7 +164,7 @@ system_requires = [
 ]
 
 system_runtime_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     # Needed to provide GTK
     "gtk3",
     # Needed to provide PyGObject bindings
@@ -184,7 +184,7 @@ system_runtime_requires = [
 manylinux = "manylinux2014"
 
 system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     # Needed to compile pycairo wheel
     "cairo-gobject-devel",
     # Needed to compile PyGObject wheel
@@ -207,13 +207,13 @@ system_requires = [
 {%- endif %}
 ]
 linuxdeploy_plugins = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     "DEPLOY_GTK_VERSION=3 gtk",
 {% endif -%}
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.flatpak]
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
 flatpak_runtime = "org.gnome.Platform"
 flatpak_runtime_version = "44"
 flatpak_sdk = "org.gnome.Sdk"
@@ -229,14 +229,14 @@ flatpak_sdk = "org.freedesktop.Sdk"
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.windows]
 requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
     "toga-winforms~=0.3.1",
 {% endif -%}
 ]
 
 # Mobile deployments
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.iOS]
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
 requires = [
     "toga-iOS~=0.3.1",
     "std-nslog~=1.0.0"
@@ -246,7 +246,7 @@ supported = false
 {%- endif %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.android]
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
 requires = [
     "toga-android~=0.3.1"
 ]
@@ -256,7 +256,7 @@ supported = false
 
 # Web deployments
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.web]
-{%- if cookiecutter.gui_framework == "Toga" %}
+{%- if cookiecutter.gui_framework == "Toga" or cookiecutter.gui_framework == "PositronDjango" or cookiecutter.gui_framework == "PositronStatic" %}
 requires = [
     "toga-web~=0.3.1",
 ]
