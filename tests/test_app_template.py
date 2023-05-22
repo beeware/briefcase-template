@@ -14,7 +14,10 @@ TEST_CASES = [
     {"gui_framework": "2"},  # PySide2 GUI framework
     {"gui_framework": "3"},  # PySide6 GUI framework
     {"gui_framework": "4"},  # PursuedPyBear GUI framework
-    {"gui_framework": "5"},  # "None" for GUI framework
+    {"gui_framework": "5"},  # Pygame GUI framework
+    {"gui_framework": "6"},  # PositronDjango for GUI framework
+    {"gui_framework": "7"},  # PositronStatic for GUI framework
+    {"gui_framework": "8"},  # "None" for GUI framework
     # Test framework options
     {"test_framework": "1"},  # pytest test framework
     {"test_framework": "2"},  # unittest test framework
