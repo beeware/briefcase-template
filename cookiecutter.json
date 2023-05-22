@@ -26,6 +26,8 @@
         "PySide6",
         "PursuedPyBear",
         "Pygame",
+        "PositronDjango",
+        "PositronStatic",
         "None"
     ],
     "test_framework": [

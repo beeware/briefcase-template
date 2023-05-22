@@ -30,6 +30,8 @@ requires = [
     "ppb~=1.1",
 {%- elif cookiecutter.gui_framework == "Pygame" %}
     "pygame~=2.2.0"
+{%- elif cookiecutter.gui_framework == "PositronDjango" %}
+    "django~=4.1"
 {%- endif %}
 ]
 test_requires = [
