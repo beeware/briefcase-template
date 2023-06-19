@@ -194,8 +194,6 @@ system_requires = [
     "libcanberra-gtk3",
     "PackageKit-gtk3-module",
     "gvfs-client",
-    # Needed to provide WebKit2 at runtime
-    # "webkit2gtk3",
 {%- elif cookiecutter.gui_framework == "PySide2" %}
 # ?? FIXME
 {%- elif cookiecutter.gui_framework == "PySide6" %}
