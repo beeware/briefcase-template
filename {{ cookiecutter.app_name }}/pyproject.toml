@@ -67,13 +67,12 @@ system_requires = [
 
 system_runtime_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to provide GTK
-    "libgtk-3-0",
-    # Needed to provide GI bindings to GTK
-    "libgirepository-1.0-1",
+    # Needed to provide GTK and its GI bindings
     "gir1.2-gtk-3.0",
+    "libgirepository-1.0-1",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra-gtk3-module",
     # Needed to provide WebKit2 at runtime
-    # "libwebkit2gtk-4.0-37",
     # "gir1.2-webkit2-4.0",
 {%- elif cookiecutter.gui_framework == "PySide2" or cookiecutter.gui_framework == "PySide6" %}
     # Derived from https://doc.qt.io/qt-6/linux-requirements.html
@@ -128,6 +127,8 @@ system_runtime_requires = [
     "gobject-introspection",
     # Needed to provide GTK
     "gtk3",
+    # Dependencies that GTK looks for at runtime
+    "libcanberra-gtk3",
     # Needed to provide WebKit2 at runtime
     # "webkit2gtk3",
 {%- elif cookiecutter.gui_framework == "PySide2" %}
