@@ -33,8 +33,8 @@
         "unittest"
     ],
     "briefcase_version": "Unknown",
-    "template": "Not provided",
-    "branch": "Not provided",
+    "template_source": "Not provided",
+    "template_branch": "Not provided",
     "_extensions": [
         "briefcase.integrations.cookiecutter.TOMLEscape"
     ]

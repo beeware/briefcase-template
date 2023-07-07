@@ -1,4 +1,4 @@
-# This project was generated with {{ cookiecutter.briefcase_version }} using template: {{ cookiecutter.template }}@{{ cookiecutter.branch }}
+# This project was generated with {{ cookiecutter.briefcase_version }} using template: {{ cookiecutter.template_source }}@{{ cookiecutter.template_branch }}
 [tool.briefcase]
 project_name = "{{ cookiecutter.project_name|escape_toml }}"
 bundle = "{{ cookiecutter.bundle }}"
