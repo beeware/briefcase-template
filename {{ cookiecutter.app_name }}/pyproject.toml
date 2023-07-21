@@ -181,7 +181,11 @@ system_runtime_requires = [
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.appimage]
+{%- if cookiecutter.gui_framework == "PySide6" %}
+manylinux = "manylinux_2_28"
+{%- else %}
 manylinux = "manylinux2014"
+{%- endif %}
 
 system_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
