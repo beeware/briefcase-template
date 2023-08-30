@@ -155,14 +155,14 @@ system_requires = [
 
 system_runtime_requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to support Python bindings to GTK
-    "gobject-introspection",
     # Needed to provide GTK
     "gtk3",
+    # Needed to support Python bindings to GTK
+    "gobject-introspection", "typelib(Gtk)=3.0",
     # Dependencies that GTK looks for at runtime
     "libcanberra-gtk3-0",
     # Needed to provide WebKit2 at runtime
-    # "libwebkit2gtk3", "typelib(WebKit2)",
+    # "libwebkit2gtk3", "typelib(WebKit2)"
 {%- elif cookiecutter.gui_framework == "PySide2" %}
     "libQt5Gui5",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
