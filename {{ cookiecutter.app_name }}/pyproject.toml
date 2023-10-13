@@ -40,6 +40,7 @@ test_requires = [
 ]
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.macOS]
+universal_build = true
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
     "toga-cocoa~=0.3.1",
