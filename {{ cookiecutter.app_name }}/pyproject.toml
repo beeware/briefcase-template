@@ -23,14 +23,14 @@ test_sources = [
 
 requires = [
 {%- if cookiecutter.gui_framework == "PySide2" %}
-    "pyside2~=5.15.2",
+    "pyside2~=5.15",
 {%- elif cookiecutter.gui_framework == "PySide6" %}
     "PySide6-Essentials~=6.5",
     # "PySide6-Addons~=6.5",
 {%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
     "ppb~=1.1",
 {%- elif cookiecutter.gui_framework == "Pygame" %}
-    "pygame~=2.2.0"
+    "pygame~=2.2",
 {%- endif %}
 ]
 test_requires = [
