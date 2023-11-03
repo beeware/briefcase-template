@@ -43,7 +43,7 @@ test_requires = [
 universal_build = true
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-cocoa~=0.3.1",
+    "toga-cocoa~=0.4.0",
 {%- endif %}
     "std-nslog~=1.0.0"
 ]
@@ -51,7 +51,7 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-gtk~=0.3.1",
+    "toga-gtk~=0.4.0",
 {%- endif %}
 ]
 
@@ -265,7 +265,7 @@ flatpak_sdk = "org.freedesktop.Sdk"
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.windows]
 requires = [
 {%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-winforms~=0.3.1",
+    "toga-winforms~=0.4.0",
 {% endif -%}
 ]
 
@@ -273,7 +273,7 @@ requires = [
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.iOS]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    "toga-iOS~=0.3.1",
+    "toga-iOS~=0.4.0",
     "std-nslog~=1.0.0"
 ]
 {%- else %}
@@ -283,7 +283,7 @@ supported = false
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.android]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    "toga-android~=0.3.1"
+    "toga-android~=0.4.0"
 ]
 {%- else %}
 supported = false
@@ -293,7 +293,7 @@ supported = false
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.web]
 {%- if cookiecutter.gui_framework == "Toga" %}
 requires = [
-    "toga-web~=0.3.1",
+    "toga-web~=0.4.0",
 ]
 style_framework = "Shoelace v2.3"
 {%- else %}
