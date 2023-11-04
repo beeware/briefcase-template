@@ -7,6 +7,7 @@ url = "{{ cookiecutter.url }}"
 license = "{{ cookiecutter.license }}"
 author = "{{ cookiecutter.author }}"
 author_email = "{{ cookiecutter.author_email }}"
+{{- cookiecutter.pyproject_table_briefcase_additional }}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}]
 formal_name = "{{ cookiecutter.formal_name|escape_toml }}"
@@ -22,280 +23,74 @@ test_sources = [
 ]
 
 requires = [
-{%- if cookiecutter.gui_framework == "PySide2" %}
-    "pyside2~=5.15",
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-    "PySide6-Essentials~=6.5",
-    # "PySide6-Addons~=6.5",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-    "ppb~=1.1",
-{%- elif cookiecutter.gui_framework == "Pygame" %}
-    "pygame~=2.2",
-{%- endif %}
+{{- cookiecutter.pyproject_requires }}
 ]
 test_requires = [
-{%- if cookiecutter.test_framework == "pytest" %}
-    "pytest",
-{%- endif %}
+{{- cookiecutter.pyproject_test_requires }}
 ]
+{{- cookiecutter.pyproject_table_briefcase_app_additional }}
+{% if cookiecutter.pyproject_table_macOS %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.macOS]
-universal_build = true
-requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-cocoa~=0.4.0",
-{%- endif %}
-    "std-nslog~=1.0.0"
-]
+{{- cookiecutter.pyproject_table_macOS }}
+{% endif %}
+{% if cookiecutter.pyproject_table_linux %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux]
-requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-gtk~=0.4.0",
-{%- endif %}
-]
+{{- cookiecutter.pyproject_table_linux }}
+{% endif %}
+{% if cookiecutter.pyproject_table_linux_system_debian %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.debian]
-system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to compile pycairo wheel
-    "libcairo2-dev",
-    # Needed to compile PyGObject wheel
-    "libgirepository1.0-dev",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
-
-system_runtime_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to provide GTK and its GI bindings
-    "gir1.2-gtk-3.0",
-    "libgirepository-1.0-1",
-    # Dependencies that GTK looks for at runtime
-    "libcanberra-gtk3-module",
-    # Needed to provide WebKit2 at runtime
-    # "gir1.2-webkit2-4.0",
-{%- elif cookiecutter.gui_framework == "PySide2" or cookiecutter.gui_framework == "PySide6" %}
-    # Derived from https://doc.qt.io/qt-6/linux-requirements.html
-    "libxrender1",
-    "libxcb-render0",
-    "libxcb-render-util0",
-    "libxcb-shape0",
-    "libxcb-randr0",
-    "libxcb-xfixes0",
-    "libxcb-xkb1",
-    "libxcb-sync1",
-    "libxcb-shm0",
-    "libxcb-icccm4",
-    "libxcb-keysyms1",
-    "libxcb-image0",
-    "libxcb-util1",
-    "libxkbcommon0",
-    "libxkbcommon-x11-0",
-    "libfontconfig1",
-    "libfreetype6",
-    "libxext6",
-    "libx11-6",
-    "libxcb1",
-    "libx11-xcb1",
-    "libsm6",
-    "libice6",
-    "libglib2.0-0",
-    "libgl1",
-    "libegl1-mesa",
-    "libdbus-1-3",
-    "libgssapi-krb5-2",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
+{{- cookiecutter.pyproject_table_linux_system_debian }}
+{% endif %}
+{% if cookiecutter.pyproject_table_linux_system_rhel %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.rhel]
-system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to compile pycairo wheel
-    "cairo-gobject-devel",
-    # Needed to compile PyGObject wheel
-    "gobject-introspection-devel",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
-
-system_runtime_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to support Python bindings to GTK
-    "gobject-introspection",
-    # Needed to provide GTK
-    "gtk3",
-    # Dependencies that GTK looks for at runtime
-    "libcanberra-gtk3",
-    # Needed to provide WebKit2 at runtime
-    # "webkit2gtk3",
-{%- elif cookiecutter.gui_framework == "PySide2" %}
-    "qt5-qtbase-gui",
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-    "qt6-qtbase-gui",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
+{{- cookiecutter.pyproject_table_linux_system_rhel }}
+{% endif %}
+{% if cookiecutter.pyproject_table_linux_system_suse %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.suse]
-system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to compile pycairo wheel
-    "cairo-devel",
-    # Needed to compile PyGObject wheel
-    "gobject-introspection-devel",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
-
-system_runtime_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to provide GTK
-    "gtk3",
-    # Needed to support Python bindings to GTK
-    "gobject-introspection", "typelib(Gtk)=3.0",
-    # Dependencies that GTK looks for at runtime
-    "libcanberra-gtk3-0",
-    # Needed to provide WebKit2 at runtime
-    # "libwebkit2gtk3",
-    # "typelib(WebKit2)",
-{%- elif cookiecutter.gui_framework == "PySide2" %}
-    "libQt5Gui5",
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-    "libQt6Gui6",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
+{{- cookiecutter.pyproject_table_linux_system_suse }}
+{% endif %}
+{% if cookiecutter.pyproject_table_linux_system_arch %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.system.arch]
-system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to compile pycairo wheel
-    "cairo",
-    # Needed to compile PyGObject wheel
-    "gobject-introspection",
-    # Runtime dependencies that need to exist so that the
-    # Arch package passes final validation.
-    # Needed to provide GTK
-    "gtk3",
-    # Dependencies that GTK looks for at runtime
-    "libcanberra",
-    # Needed to provide WebKit2
-    # "webkit2gtk",
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-    "qt6-base",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
-
-system_runtime_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to provide GTK
-    "gtk3",
-    # Needed to provide PyGObject bindings
-    "gobject-introspection-runtime",
-    # Dependencies that GTK looks for at runtime
-    "libcanberra",
-    # Needed to provide WebKit2 at runtime
-    # "webkit2gtk",
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-    "qt6-base",
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
+{{- cookiecutter.pyproject_table_linux_system_arch }}
+{% endif %}
+{% if cookiecutter.pyproject_table_linux_appimage %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.appimage]
-{%- if cookiecutter.gui_framework == "PySide6" %}
-manylinux = "manylinux_2_28"
-{%- else %}
-manylinux = "manylinux2014"
-{%- endif %}
-
-system_requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    # Needed to compile pycairo wheel
-    "cairo-gobject-devel",
-    # Needed to compile PyGObject wheel
-    "gobject-introspection-devel",
-    # Needed to provide GTK
-    "gtk3-devel",
-    # Dependencies that GTK looks for at runtime, that need to be
-    # in the build environment to be picked up by linuxdeploy
-    "libcanberra-gtk3",
-    "PackageKit-gtk3-module",
-    "gvfs-client",
-{%- elif cookiecutter.gui_framework == "PySide2" %}
-# ?? FIXME
-{%- elif cookiecutter.gui_framework == "PySide6" %}
-# ?? FIXME
-{%- elif cookiecutter.gui_framework == "PursuedPyBear" %}
-# ?? FIXME
-{%- endif %}
-]
-linuxdeploy_plugins = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    "DEPLOY_GTK_VERSION=3 gtk",
-{% endif -%}
-]
+{{- cookiecutter.pyproject_table_linux_appimage }}
+{% endif %}
+{% if cookiecutter.pyproject_table_linux_flatpak %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.linux.flatpak]
-{%- if cookiecutter.gui_framework == "Toga" %}
-flatpak_runtime = "org.gnome.Platform"
-flatpak_runtime_version = "44"
-flatpak_sdk = "org.gnome.Sdk"
-{%- elif cookiecutter.gui_framework in ["PySide2", "PySide6"] %}
-flatpak_runtime = "org.kde.Platform"
-flatpak_runtime_version = "6.4"
-flatpak_sdk = "org.kde.Sdk"
-{%- else %}
-flatpak_runtime = "org.freedesktop.Platform"
-flatpak_runtime_version = "22.08"
-flatpak_sdk = "org.freedesktop.Sdk"
-{%- endif %}
+{{- cookiecutter.pyproject_table_linux_flatpak }}
+{% endif %}
+{% if cookiecutter.pyproject_table_windows %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.windows]
-requires = [
-{%- if cookiecutter.gui_framework == "Toga" %}
-    "toga-winforms~=0.4.0",
-{% endif -%}
-]
+{{- cookiecutter.pyproject_table_windows }}
+{% endif %}
+{% if cookiecutter.pyproject_table_macOS or cookiecutter.pyproject_table_android %}
 
 # Mobile deployments
+{% endif %}
+{% if cookiecutter.pyproject_table_iOS %}
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.iOS]
-{%- if cookiecutter.gui_framework == "Toga" %}
-requires = [
-    "toga-iOS~=0.4.0",
-    "std-nslog~=1.0.0"
-]
-{%- else %}
-supported = false
-{%- endif %}
+{{- cookiecutter.pyproject_table_iOS }}
+{% endif %}
+{% if cookiecutter.pyproject_table_android %}
 
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.android]
-{%- if cookiecutter.gui_framework == "Toga" %}
-requires = [
-    "toga-android~=0.4.0"
-]
-{%- else %}
-supported = false
-{%- endif %}
+{{- cookiecutter.pyproject_table_android }}
+{% endif %}
+{% if cookiecutter.pyproject_table_web %}
 
 # Web deployments
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.web]
-{%- if cookiecutter.gui_framework == "Toga" %}
-requires = [
-    "toga-web~=0.4.0",
-]
-style_framework = "Shoelace v2.3"
-{%- else %}
-supported = false
-{%- endif %}
+{{- cookiecutter.pyproject_table_web }}
+{% endif %}
+{{ cookiecutter.pyproject_extra_content }}

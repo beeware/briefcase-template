@@ -10,21 +10,38 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
+
+env:
+  FORCE_COLOR: "1"
+
 jobs:
+  pre-commit:
+    name: Pre-commit checks
+    uses: beeware/.github/.github/workflows/pre-commit-run.yml@main
+    with:
+      pre-commit-source: -r requirements.txt
+
   unit-tests:
+    name: Unit tests
+    needs: pre-commit
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4.1.1
+
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v4.7.1
       with:
         python-version: "3.X"
-    - name: Install dependencies
-      run: |
-        python -m pip install tox
+
+    - name: Install Dependencies
+      run: python -m pip install -r requirements.txt
+
     - name: Test with tox
-      run: |
-        tox
+      run: tox
 
   verify-apps:
     name: Build App
