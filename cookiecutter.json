@@ -3,6 +3,8 @@
     "app_name": "{{ cookiecutter.formal_name|lower|replace(' ', '') }}",
     "class_name": "{{ cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','') }}",
     "module_name": "{{ cookiecutter.app_name|lower|replace('-', '_') }}",
+    "source_dir": "src/{{ cookiecutter.module_name }}",
+    "test_source_dir": "tests",
     "project_name": "Project Awesome",
     "description": "An app that does lots of stuff",
     "author": "Jane Developer",
