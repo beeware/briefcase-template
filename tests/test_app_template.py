@@ -74,13 +74,8 @@ test_sources = [
     "tests",
 ]
 
-requires = [
-]
-test_requires = [
-]
-
 ''',
-        id="minimum context",
+        id="minimum-context",
     ),
     pytest.param(
         {
@@ -89,12 +84,6 @@ test_requires = [
                 test_framework="unittest",
                 app_source=APP_SOURCE,
                 app_start_source=APP_START_SOURCE,
-                pyproject_requires="""
-    "pyproject_requires"
-""",
-                pyproject_test_requires="""
-    "pyproject_test_requires"
-""",
                 pyproject_table_macOS=SIMPLE_TABLE_CONTENT.format("macOS"),
                 pyproject_table_linux=SIMPLE_TABLE_CONTENT.format("linux"),
                 pyproject_table_linux_system_debian=SIMPLE_TABLE_CONTENT.format("deb"),
@@ -134,13 +123,6 @@ sources = [
 ]
 test_sources = [
     "tests",
-]
-
-requires = [
-    "pyproject_requires"
-]
-test_requires = [
-    "pyproject_test_requires"
 ]
 
 [tool.briefcase.app.helloworld.macOS]
@@ -206,7 +188,7 @@ requires = [
 ]
 
 ''',
-        id="normal context",
+        id="normal-context",
     ),
     pytest.param(
         {
@@ -214,23 +196,17 @@ requires = [
             **dict(
                 app_source=APP_SOURCE,
                 app_start_source=APP_START_SOURCE,
-                pyproject_table_briefcase_additional="""
-field = "pyproject_table_briefcase_additional"
+                pyproject_table_briefcase_extra_content="""
+field = "pyproject_table_briefcase_extra_content"
 answer = 42
 """,
-                pyproject_table_briefcase_app_additional="""
+                pyproject_table_briefcase_app_extra_content="""
 
 other_resources = [
     "dir",
     "otherdir",
-    "pyproject_table_briefcase_app_additional",
+    "pyproject_table_briefcase_app_extra_content",
 ]""",
-                pyproject_requires="""
-    "pyproject_requires"
-""",
-                pyproject_test_requires="""
-    "pyproject_test_requires"
-""",
                 pyproject_table_macOS=SIMPLE_TABLE_CONTENT.format("macOS"),
                 pyproject_table_linux=SIMPLE_TABLE_CONTENT.format("linux"),
                 pyproject_table_linux_appimage=SIMPLE_TABLE_CONTENT.format("appimage"),
@@ -265,7 +241,7 @@ url = "https://example.com"
 license = "BSD license"
 author = "Jane Developer"
 author_email = "jane@example.com"
-field = "pyproject_table_briefcase_additional"
+field = "pyproject_table_briefcase_extra_content"
 answer = 42
 
 [tool.briefcase.app.helloworld]
@@ -281,17 +257,10 @@ test_sources = [
     "tests",
 ]
 
-requires = [
-    "pyproject_requires"
-]
-test_requires = [
-    "pyproject_test_requires"
-]
-
 other_resources = [
     "dir",
     "otherdir",
-    "pyproject_table_briefcase_app_additional",
+    "pyproject_table_briefcase_app_extra_content",
 ]
 
 [tool.briefcase.app.helloworld.macOS]
@@ -341,7 +310,7 @@ list = [
     "value",
 ]
 ''',
-        id="normal context with extra content",
+        id="normal-context-with-extra-content",
     ),
     pytest.param(
         {
@@ -349,15 +318,9 @@ list = [
             **dict(
                 app_source=APP_SOURCE,
                 app_start_source=APP_START_SOURCE,
-                pyproject_table_briefcase_additional='\nfield = "pyproject_table_briefcase_additional"',
-                pyproject_table_briefcase_app_additional="""
-other_resources = ["dir", "pyproject_table_briefcase_app_additional"]
-""",
-                pyproject_requires="""
-    "pyproject_requires"
-""",
-                pyproject_test_requires="""
-    "pyproject_test_requires"
+                pyproject_table_briefcase_extra_content='\nfield = "pyproject_table_briefcase_extra_content"',
+                pyproject_table_briefcase_app_extra_content="""
+other_resources = ["dir", "pyproject_table_briefcase_app_extra_content"]
 """,
                 pyproject_extra_content="""
 [tool.briefcase.{{ cookiecutter.app_name|escape_non_ascii }}.my_custom_format_one]
@@ -381,7 +344,7 @@ url = "https://example.com"
 license = "BSD license"
 author = "Jane Developer"
 author_email = "jane@example.com"
-field = "pyproject_table_briefcase_additional"
+field = "pyproject_table_briefcase_extra_content"
 
 [tool.briefcase.app.helloworld]
 formal_name = "Hello World"
@@ -395,14 +358,7 @@ sources = [
 test_sources = [
     "tests",
 ]
-
-requires = [
-    "pyproject_requires"
-]
-test_requires = [
-    "pyproject_test_requires"
-]
-other_resources = ["dir", "pyproject_table_briefcase_app_additional"]
+other_resources = ["dir", "pyproject_table_briefcase_app_extra_content"]
 
 [tool.briefcase.helloworld.my_custom_format_one]
 field = "pyproject_extra_content_one"
@@ -410,7 +366,7 @@ field = "pyproject_extra_content_one"
 [tool.briefcase.helloworld.my_custom_format_two]
 field = "pyproject_extra_content_two"
 ''',
-        id="only extra content",
+        id="only-extra-content",
     ),
 ]
 
