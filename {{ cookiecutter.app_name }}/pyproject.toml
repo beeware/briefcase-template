@@ -67,7 +67,7 @@ test_sources = [
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.windows]
 {{- cookiecutter.pyproject_table_windows }}
 {% endif %}
-{% if cookiecutter.pyproject_table_macOS or cookiecutter.pyproject_table_android %}
+{% if cookiecutter.pyproject_table_iOS or cookiecutter.pyproject_table_android %}
 
 # Mobile deployments
 {% endif %}

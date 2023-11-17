@@ -72,7 +72,6 @@ jobs:
       # ubuntu-latest upgrades to ubuntu-24.04, it will happen gradually, so the
       # system Python version won't be predictable.
       python-version: "3.10"
-      briefcase-template-source: "../../"
       runner-os: ${{ matrix.runner-os }}
       framework: ${{ matrix.framework }}
     strategy:
