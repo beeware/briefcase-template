@@ -42,7 +42,7 @@ def run_tests():
     runner = unittest.TextTestRunner(verbosity=2)
     result = runner.run(suite)
     returncode = int(not result.wasSuccessful())
-{%- endif %}
+{%- endif +%}
 
     print(f">>>>>>>>>> EXIT {returncode} <<<<<<<<<<")
 
