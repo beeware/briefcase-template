@@ -46,9 +46,7 @@ jobs:
   verify-templates:
     name: Verify Templates
     needs: unit-tests
-    # !!!!! TODO:PR: use real repo !!!!!
-    # uses: beeware/.github/.github/workflows/app-create-verify.yml@main
-    uses: rmartin16/.github-beeware/.github/workflows/app-create-verify.yml@create-new-project
+    uses: beeware/.github/.github/workflows/app-create-verify.yml@main
     with:
       runner-os: ${{ matrix.runner-os }}
       framework: ${{ matrix.framework }}
@@ -62,9 +60,7 @@ jobs:
   verify-apps:
     name: Build App
     needs: unit-tests
-    # !!!!! TODO:PR: use real repo !!!!!
-    # uses: beeware/.github/.github/workflows/app-build-verify.yml@main
-    uses: rmartin16/.github-beeware/.github/workflows/app-build-verify.yml@create-new-project
+    uses: beeware/.github/.github/workflows/app-build-verify.yml@main
     with:
       # This *must* be the version of Python that is the native system Python on
       # ubuntu-22.04, which is needed to test local Debian packages. We use
