@@ -43,8 +43,8 @@ jobs:
     - name: Test with tox
       run: tox
 
-  verify-templates:
-    name: Verify Templates
+  verify-projects:
+    name: Verify project
     needs: unit-tests
     uses: beeware/.github/.github/workflows/app-create-verify.yml@main
     with:
@@ -58,7 +58,7 @@ jobs:
 
 
   verify-apps:
-    name: Build App
+    name: Build app
     needs: unit-tests
     uses: beeware/.github/.github/workflows/app-build-verify.yml@main
     with:
