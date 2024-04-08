@@ -25,7 +25,7 @@ BASIC_APP_CONTEXT = {
     "test_framework": "pytest",
 }
 
-SIMPLE_TABLE_CONTENT = """
+SIMPLE_TABLE_CONTENT = """\
 requires = [
     "{}==1.1.0",
 ]
@@ -201,12 +201,12 @@ field = "pyproject_table_briefcase_extra_content"
 answer = 42
 """,
                 pyproject_table_briefcase_app_extra_content="""
-
 other_resources = [
     "dir",
     "otherdir",
     "pyproject_table_briefcase_app_extra_content",
-]""",
+]
+""",
                 pyproject_table_macOS=SIMPLE_TABLE_CONTENT.format("macOS"),
                 pyproject_table_linux=SIMPLE_TABLE_CONTENT.format("linux"),
                 pyproject_table_linux_appimage=SIMPLE_TABLE_CONTENT.format("appimage"),
@@ -214,7 +214,7 @@ other_resources = [
                 pyproject_table_windows=SIMPLE_TABLE_CONTENT.format("windows"),
                 pyproject_table_iOS=SIMPLE_TABLE_CONTENT.format("iOS"),
                 pyproject_table_android=SIMPLE_TABLE_CONTENT.format("android"),
-                pyproject_extra_content="""
+                pyproject_extra_content="""\
 [tool.briefcase.{{ cookiecutter.app_name|escape_non_ascii }}.my_custom_format_one]
 field = "pyproject_extra_content"
 
@@ -241,6 +241,7 @@ url = "https://example.com"
 license = "BSD license"
 author = "Jane Developer"
 author_email = "jane@example.com"
+
 field = "pyproject_table_briefcase_extra_content"
 answer = 42
 
@@ -318,16 +319,17 @@ list = [
             **dict(
                 app_source=APP_SOURCE,
                 app_start_source=APP_START_SOURCE,
-                pyproject_table_briefcase_extra_content='\nfield = "pyproject_table_briefcase_extra_content"',
+                pyproject_table_briefcase_extra_content='field = "pyproject_table_briefcase_extra_content"\n',
                 pyproject_table_briefcase_app_extra_content="""
 other_resources = ["dir", "pyproject_table_briefcase_app_extra_content"]
 """,
-                pyproject_extra_content="""
+                pyproject_extra_content="""\
 [tool.briefcase.{{ cookiecutter.app_name|escape_non_ascii }}.my_custom_format_one]
 field = "pyproject_extra_content_one"
 
 [tool.briefcase.{{ cookiecutter.app_name|escape_non_ascii }}.my_custom_format_two]
 field = "pyproject_extra_content_two"
+
 """,
                 briefcase_version="v0.3.16-3",
                 template_source="https://example.com/beeware/briefcase-template",
@@ -358,6 +360,7 @@ sources = [
 test_sources = [
     "tests",
 ]
+
 other_resources = ["dir", "pyproject_table_briefcase_app_extra_content"]
 
 [tool.briefcase.helloworld.my_custom_format_one]
@@ -365,6 +368,7 @@ field = "pyproject_extra_content_one"
 
 [tool.briefcase.helloworld.my_custom_format_two]
 field = "pyproject_extra_content_two"
+
 ''',
         id="only-extra-content",
     ),
@@ -400,9 +404,8 @@ def test_parse_pyproject_toml(app_directory, context, expected_toml):
     """Test for errors in parsing the generated pyproject.toml file."""
     pyproject_toml = app_directory / "helloworld" / "pyproject.toml"
     assert pyproject_toml.is_file()  # check pyproject.toml exists
-    toml.load(pyproject_toml)  # any error in parsing will trigger pytest
-    with open(pyproject_toml) as toml_file:
-        assert expected_toml == toml_file.read()
+    toml.load(pyproject_toml)  # any error in parsing will trigger pytest failure
+    assert expected_toml == pyproject_toml.read_text()
 
 
 @pytest.mark.parametrize("context, expected_toml", TEST_CASES)
