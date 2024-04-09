@@ -13,7 +13,6 @@ formal_name = "{{ cookiecutter.formal_name|escape_toml }}"
 description = "{{ cookiecutter.description|escape_toml }}"
 long_description = """More details about the app should go here.
 """
-icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
 sources = [
     "src/{{ cookiecutter.module_name }}",
 ]

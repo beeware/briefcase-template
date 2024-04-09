@@ -66,7 +66,6 @@ formal_name = "Hello World"
 description = "An app that does lots of stuff"
 long_description = """More details about the app should go here.
 """
-icon = "src/helloworld/resources/helloworld"
 sources = [
     "src/helloworld",
 ]
@@ -117,7 +116,6 @@ formal_name = "Hello World"
 description = "An app that does lots of stuff"
 long_description = """More details about the app should go here.
 """
-icon = "src/helloworld/resources/helloworld"
 sources = [
     "src/helloworld",
 ]
@@ -250,7 +248,6 @@ formal_name = "Hello World"
 description = "An app that does lots of stuff"
 long_description = """More details about the app should go here.
 """
-icon = "src/helloworld/resources/helloworld"
 sources = [
     "src/helloworld",
 ]
@@ -353,7 +350,6 @@ formal_name = "Hello World"
 description = "An app that does lots of stuff"
 long_description = """More details about the app should go here.
 """
-icon = "src/helloworld/resources/helloworld"
 sources = [
     "src/helloworld",
 ]
