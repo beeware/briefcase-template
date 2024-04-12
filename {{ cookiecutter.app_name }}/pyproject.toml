@@ -15,10 +15,10 @@ long_description = """More details about the app should go here.
 """
 icon = "src/{{ cookiecutter.module_name }}/resources/{{ cookiecutter.app_name }}"
 sources = [
-    "src/{{ cookiecutter.module_name }}",
+    "{{ cookiecutter.source_dir }}",
 ]
 test_sources = [
-    "tests",
+    "{{ cookiecutter.test_source_dir }}",
 ]
 {{ cookiecutter.pyproject_table_briefcase_app_extra_content }}
 {% if cookiecutter.pyproject_table_macOS %}
