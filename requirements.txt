@@ -4,4 +4,4 @@ flake8 == 7.0.0
 pre-commit == 3.7.0
 pytest == 8.2.0
 toml == 0.10.2
-tox == 4.14.2
+tox == 4.15.0
