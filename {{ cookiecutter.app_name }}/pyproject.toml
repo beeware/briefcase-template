@@ -5,7 +5,7 @@ bundle = "{{ cookiecutter.bundle }}"
 version = "0.0.1"
 url = "{{ cookiecutter.url }}"
 license = "{{ cookiecutter.license }}"
-author = "{{ cookiecutter.author }}"
+author = "{{ cookiecutter.author|escape_toml }}"
 author_email = "{{ cookiecutter.author_email }}"
 {{ cookiecutter.pyproject_table_briefcase_extra_content }}
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}]
