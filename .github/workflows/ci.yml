@@ -53,7 +53,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        framework: [ "toga", "pyside6", "ppb", "pygame" ]
+        framework: [ "toga", "pyside6", "pygame" ]
         runner-os: [ "macos-latest", "ubuntu-22.04", "windows-latest" ]
 
 
@@ -73,5 +73,5 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        framework: [ "toga", "pyside6", "ppb", "pygame" ]
+        framework: [ "toga", "pyside6", "pygame" ]
         runner-os: [ "macos-latest", "ubuntu-22.04", "windows-latest" ]
