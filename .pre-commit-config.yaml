@@ -35,7 +35,7 @@ repos:
       - id: flake8
         args: [--max-line-length=119]
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+    rev: v2.3.0
     hooks:
     - id: codespell
       additional_dependencies: [tomli]
