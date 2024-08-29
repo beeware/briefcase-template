@@ -6,8 +6,9 @@ on:
     branches:
       - main
 
+# Cancel active CI runs for a PR before starting another run
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 defaults:
@@ -55,7 +56,6 @@ jobs:
       matrix:
         framework: [ "toga", "pyside6", "pygame" ]
         runner-os: [ "macos-latest", "ubuntu-22.04", "windows-latest" ]
-
 
   verify-apps:
     name: Build app
