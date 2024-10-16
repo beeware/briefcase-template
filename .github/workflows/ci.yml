@@ -56,7 +56,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        framework: [ "toga", "pyside6", "pygame" ]
+        framework: [ "toga", "pyside6", "pygame", "console" ]
         runner-os: [ "macos-latest", "ubuntu-latest", "windows-latest" ]
 
   verify-apps:
@@ -72,7 +72,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        framework: [ "toga", "pyside6", "pygame" ]
+        framework: [ "toga", "pyside6", "pygame", "console" ]
         runner-os: [ "macos-latest", "ubuntu-latest", "windows-latest" ]
 
         include:
