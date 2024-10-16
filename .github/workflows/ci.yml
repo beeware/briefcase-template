@@ -47,7 +47,9 @@ jobs:
   verify-projects:
     name: Verify project
     needs: unit-tests
-    uses: beeware/.github/.github/workflows/app-create-verify.yml@main
+    # TODO: Revert to main when .github#172 is merged
+    # uses: beeware/.github/.github/workflows/app-create-verify.yml@main
+    uses: beeware/.github/.github/workflows/app-create-verify.yml@599f2fbb61c17aa94a962f26647f31a879a31052
     with:
       runner-os: ${{ matrix.runner-os }}
       framework: ${{ matrix.framework }}
@@ -55,23 +57,28 @@ jobs:
       fail-fast: false
       matrix:
         framework: [ "toga", "pyside6", "pygame" ]
-        runner-os: [ "macos-latest", "ubuntu-22.04", "windows-latest" ]
+        runner-os: [ "macos-latest", "ubuntu-latest", "windows-latest" ]
 
   verify-apps:
     name: Build app
     needs: unit-tests
-    uses: beeware/.github/.github/workflows/app-build-verify.yml@main
+    # TODO: Revert to main when .github#172 is merged
+    # uses: beeware/.github/.github/workflows/app-build-verify.yml@main
+    uses: beeware/.github/.github/workflows/app-build-verify.yml@599f2fbb61c17aa94a962f26647f31a879a31052
     with:
-      # This *must* be the version of Python that is the native system Python on
-      # ubuntu-22.04, which is needed to test local Debian packages. We use
-      # ubuntu-22.04 explicitly rather than ubuntu-latest because when
-      # ubuntu-latest upgrades to ubuntu-24.04, it will happen gradually, so the
-      # system Python version won't be predictable.
-      python-version: "3.10"
+      python-version: ${{ matrix.python-version }}
       runner-os: ${{ matrix.runner-os }}
       framework: ${{ matrix.framework }}
     strategy:
       fail-fast: false
       matrix:
         framework: [ "toga", "pyside6", "pygame" ]
-        runner-os: [ "macos-latest", "ubuntu-22.04", "windows-latest" ]
+        runner-os: [ "macos-latest", "ubuntu-latest", "windows-latest" ]
+
+        include:
+          # A version of Python that is supported by all the GUI toolkits.
+          - python-version: "3.12"
+
+          # Ubuntu must always use the system Python
+          - runner-os: ubuntu-latest
+            python-version: system
