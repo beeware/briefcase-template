@@ -19,7 +19,9 @@ sources = [
 test_sources = [
     "{{ cookiecutter.test_source_dir }}",
 ]
+{% if cookiecutter.console_app %}
 console.app = "{{cookiecutter.console_app}}"
+{% endif %}
 {{ cookiecutter.pyproject_table_briefcase_app_extra_content }}
 {% if cookiecutter.pyproject_table_macOS %}
 [tool.briefcase.app.{{ cookiecutter.app_name|escape_non_ascii }}.macOS]
