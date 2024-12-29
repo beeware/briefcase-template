@@ -28,7 +28,7 @@
     ],
     "app_source": "",
     "app_start_source": "",
-    "console_app": "",
+    "console_app": false,
     "pyproject_table_briefcase_extra_content": "",
     "pyproject_table_briefcase_app_extra_content": "",
     "pyproject_table_macOS": "",
