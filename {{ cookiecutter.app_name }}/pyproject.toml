@@ -20,7 +20,7 @@ test_sources = [
     "{{ cookiecutter.test_source_dir }}",
 ]
 {% if cookiecutter.console_app %}
-console.app = {{cookiecutter.console_app}}
+console.app = {{ true if cookiecutter.console_app else false }}
 {% endif %}
 {{ cookiecutter.pyproject_table_briefcase_app_extra_content }}
 {% if cookiecutter.pyproject_table_macOS %}
