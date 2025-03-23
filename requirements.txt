@@ -1,7 +1,7 @@
 black == 25.1.0
 briefcase @ git+https://github.com/beeware/briefcase.git
 flake8 == 7.1.2
-pre-commit == 4.1.0
+pre-commit == 4.2.0
 pytest == 8.3.5
 toml == 0.10.2
 tox == 4.24.2
