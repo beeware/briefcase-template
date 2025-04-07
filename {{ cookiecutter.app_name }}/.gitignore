@@ -58,5 +58,6 @@ var/
 ## mpeltonen/sbt-idea plugin
 .idea_modules/
 
-# Briefcase log files
+# Briefcase files
 logs/
+.briefcase/
