@@ -185,7 +185,7 @@ requires = [
     "web==1.1.0",
 ]
 
-''',
+''',  # noqa: E501
         id="normal-context",
     ),
     pytest.param(
@@ -307,7 +307,7 @@ list = [
     "value",
     "value",
 ]
-''',
+''',  # noqa: E501
         id="normal-context-with-extra-content",
     ),
     pytest.param(
@@ -365,7 +365,7 @@ field = "pyproject_extra_content_one"
 [tool.briefcase.helloworld.my_custom_format_two]
 field = "pyproject_extra_content_two"
 
-''',
+''',  # noqa: E501
         id="only-extra-content",
     ),
 ]
