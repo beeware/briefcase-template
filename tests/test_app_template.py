@@ -51,7 +51,7 @@ TEST_CASES = [
     pytest.param(
         BASIC_APP_CONTEXT,
         '''\
-# This project was generated with Unknown using template: Not provided@Not provided
+# This project was generated with Unknown using template: Not provided/tree/Not provided
 [tool.briefcase]
 project_name = "Project Awesome"
 bundle = "com.example"
@@ -101,7 +101,7 @@ test_sources = [
             ),
         },
         '''\
-# This project was generated with v0.3.16-2 using template: https://example.com/beeware/briefcase-template@my-branch
+# This project was generated with v0.3.16-2 using template: https://example.com/beeware/briefcase-template/tree/my-branch
 [tool.briefcase]
 project_name = "Project Awesome"
 bundle = "com.example"
@@ -185,7 +185,7 @@ requires = [
     "web==1.1.0",
 ]
 
-''',
+''',  # noqa: E501
         id="normal-context",
     ),
     pytest.param(
@@ -230,7 +230,7 @@ list = [
             ),
         },
         '''\
-# This project was generated with v0.3.16-3 using template: https://example.com/beeware/briefcase-template@my-branch
+# This project was generated with v0.3.16-3 using template: https://example.com/beeware/briefcase-template/tree/my-branch
 [tool.briefcase]
 project_name = "Project Awesome"
 bundle = "com.example"
@@ -307,7 +307,7 @@ list = [
     "value",
     "value",
 ]
-''',
+''',  # noqa: E501
         id="normal-context-with-extra-content",
     ),
     pytest.param(
@@ -334,7 +334,7 @@ field = "pyproject_extra_content_two"
             ),
         },
         '''\
-# This project was generated with v0.3.16-3 using template: https://example.com/beeware/briefcase-template@my-branch
+# This project was generated with v0.3.16-3 using template: https://example.com/beeware/briefcase-template/tree/my-branch
 [tool.briefcase]
 project_name = "Project Awesome"
 bundle = "com.example"
@@ -365,7 +365,7 @@ field = "pyproject_extra_content_one"
 [tool.briefcase.helloworld.my_custom_format_two]
 field = "pyproject_extra_content_two"
 
-''',
+''',  # noqa: E501
         id="only-extra-content",
     ),
 ]
