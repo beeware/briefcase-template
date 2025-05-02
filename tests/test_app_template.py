@@ -21,7 +21,7 @@ BASIC_APP_CONTEXT = {
     "author_email": "jane@example.com",
     "bundle": "com.example",
     "url": "https://example.com",
-    "license": 'BSD-3-Clause',
+    "license": "BSD-3-Clause",
     "test_framework": "pytest",
 }
 
