@@ -372,6 +372,35 @@ field = "pyproject_extra_content_two"
 ''',  # noqa: E501
         id="only-extra-content",
     ),
+    pytest.param(
+        {**BASIC_APP_CONTEXT, "license": "Proprietary"},
+        '''\
+# This project was generated with Unknown using template: Not provided @ Not provided
+[tool.briefcase]
+project_name = "Project Awesome"
+bundle = "com.example"
+version = "0.0.1"
+url = "https://example.com"
+license = "LicenseRef-Proprietary"
+license-files = ["LICENSE"]
+author = "Jane Developer"
+author_email = "jane@example.com"
+
+[tool.briefcase.app.helloworld]
+formal_name = "Hello World"
+description = "An app that does lots of stuff"
+long_description = """More details about the app should go here.
+"""
+sources = [
+    "src/helloworld",
+]
+test_sources = [
+    "tests",
+]
+
+''',
+        id="proprietary-license",
+    ),
 ]
 
 
