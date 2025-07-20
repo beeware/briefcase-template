@@ -4,7 +4,8 @@ project_name = "{{ cookiecutter.project_name|escape_toml }}"
 bundle = "{{ cookiecutter.bundle }}"
 version = "0.0.1"
 url = "{{ cookiecutter.url }}"
-license.file = "LICENSE"
+license = "{{ cookiecutter.license }}"
+license-files = ["LICENSE"]
 author = "{{ cookiecutter.author|escape_toml }}"
 author_email = "{{ cookiecutter.author_email }}"
 {{ cookiecutter.pyproject_table_briefcase_extra_content }}
