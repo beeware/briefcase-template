@@ -1,4 +1,4 @@
-black == 25.1.0
+black == 25.9.0
 briefcase @ git+https://github.com/beeware/briefcase.git
 flake8 == 7.3.0
 pre-commit == 4.3.0
