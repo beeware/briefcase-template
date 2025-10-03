@@ -60,3 +60,6 @@ var/
 
 # Briefcase log files
 logs/
+
+# Briefcase local configuratoin
+.briefcase/
