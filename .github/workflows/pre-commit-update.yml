@@ -14,5 +14,5 @@ jobs:
     uses: beeware/.github/.github/workflows/pre-commit-update.yml@main
     secrets: inherit
     with:
-      pre-commit-source: pre-commit
+      pre-commit-source: -r requirements.txt
       create-changenote: false
