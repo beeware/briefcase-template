@@ -3,7 +3,6 @@
 {% else %}
 from {{ cookiecutter.module_name }}.app import main
 
-
 if __name__ == "__main__":
     main()
 {% endif %}
