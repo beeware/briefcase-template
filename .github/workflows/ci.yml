@@ -42,7 +42,7 @@ jobs:
       run: python -m pip install -U pip
 
     - name: Install Dependencies
-      run: python -m pip install --group test
+      run: python -m pip install --group dev
 
     - name: Test with tox
       run: tox
