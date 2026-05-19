@@ -1,0 +1,12 @@
+[dependency-groups]
+test = [
+    "pytest == 9.0.3",
+    "toml == 0.10.2",
+    "flake8 == 7.3.0",
+    "briefcase @ git+https://github.com/beeware/briefcase.git",
+]
+dev = [
+    "tox == 4.54.0",
+    "pre-commit == 4.6.0",
+    "black == 26.5.1",
+]
