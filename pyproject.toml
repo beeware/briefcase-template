@@ -15,7 +15,6 @@ test = [
     {include-group = "briefcase"},
 ]
 dev = [
-    "black == 26.5.1",
     {include-group = "briefcase"},
     {include-group = "pre-commit"},
     {include-group = "tox"},
