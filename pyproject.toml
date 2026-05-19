@@ -8,11 +8,18 @@ pre-commit = [
 tox = [
     "tox == 4.54.0",
 ]
-test = [
-    "pytest == 9.0.3",
+verify = [
     "toml == 0.10.2",
     "flake8 == 7.3.0",
+]
+create-verify = [
+    "black == 25.1.0",
+    {include-group = "verify"},
+]
+test = [
+    "pytest == 9.0.3",
     {include-group = "briefcase"},
+    {include-group = "verify"},
 ]
 dev = [
     {include-group = "briefcase"},
