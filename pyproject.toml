@@ -1,6 +1,6 @@
 [dependency-groups]
 briefcase = [
-    "briefcase @ git+https://github.com/beeware/briefcase.git",  # provides cookiecutter
+    "briefcase @ git+https://github.com/beeware/briefcase",  # provides cookiecutter
 ]
 pre-commit = [
     "pre-commit == 4.6.0",
