@@ -6,14 +6,14 @@ pre-commit = [
     "pre-commit == 4.6.0",
 ]
 tox = [
-    "tox == 4.54.0",
+    "tox == 4.55.1",
 ]
 verify = [
     "toml == 0.10.2",
     "flake8 == 7.3.0",
 ]
 create-verify = [
-    "black == 25.1.0",
+    "black == 26.5.1",
     {include-group = "verify"},
 ]
 test = [
