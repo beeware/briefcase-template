@@ -6,7 +6,7 @@ pre-commit = [
     "pre-commit == 4.6.0",
 ]
 tox = [
-    "tox == 4.55.1",
+    "tox == 4.56.1",
 ]
 verify = [
     "toml == 0.10.2",
@@ -17,7 +17,7 @@ create-verify = [
     {include-group = "verify"},
 ]
 test = [
-    "pytest == 9.0.3",
+    "pytest == 9.1.1",
     {include-group = "briefcase"},
     {include-group = "verify"},
 ]
