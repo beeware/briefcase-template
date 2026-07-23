@@ -26,7 +26,8 @@ def run_tests():
             # Overwrite the cache directory to somewhere writable
             "-o",
             f"cache_dir={tempfile.gettempdir()}/.pytest_cache",
-        ] + args
+            *args,
+        ]
     )
 {%- elif cookiecutter.test_framework == "unittest" -%}
 import os

@@ -4,6 +4,7 @@ def test_first():
     """An initial test for the app."""
     assert 1 + 1 == 2
 {% elif cookiecutter.test_framework == "unittest" %}
+# ruff: noqa: PT009
 import unittest
 
 

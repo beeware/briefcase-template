@@ -1,11 +1,12 @@
 import os
 import py_compile
+import subprocess
 from pathlib import Path
 
 import pytest
 import toml
 from cookiecutter import main
-from flake8.api import legacy as flake8
+
 
 BASIC_APP_CONTEXT = {
     "formal_name": "Hello World",
@@ -36,12 +37,11 @@ from datetime import datetime
 
 
 def main():
-    print(f"hello world - it's {datetime.now()}")
+    print(f"hello world - it's {datetime.utc()}")
 """
 
 APP_START_SOURCE = """\
-import app
-
+from .app import app
 
 if __name__ == "__main__":
     app()
@@ -409,12 +409,17 @@ def test_parse_pyproject_toml(app_directory, context, expected_toml):
 
 
 @pytest.mark.parametrize("context, expected_toml", TEST_CASES)
-def test_flake8_app(app_directory, context, expected_toml):
-    """Check there are no flake8 errors in any of the generated python files."""
-    files = [f for f in _all_filenames(app_directory) if f.suffix == ".py"]
-    style_guide = flake8.get_style_guide()
-    report = style_guide.check_files(list(map(str, files)))
-    assert report.get_statistics("E") == [], "Flake8 found violations"
+def test_ruff(app_directory, context, expected_toml):
+    """Check there are no ruff errors in any of the generated python files."""
+    try:
+        subprocess.run(["ruff", "check", app_directory], check=True)
+    except subprocess.CalledProcessError:
+        pytest.fail("Ruff found style violations")
+
+    try:
+        subprocess.run(["ruff", "format", app_directory], check=True)
+    except subprocess.CalledProcessError:
+        pytest.fail("Ruff found format violations")
 
 
 @pytest.mark.parametrize("context, expected_toml", TEST_CASES)
