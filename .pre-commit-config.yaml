@@ -10,7 +10,7 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
   - repo: https://github.com/PyCQA/isort
-    rev: 9.0.0a3
+    rev: 9.0.0b1
     hooks:
       - id: isort
         additional_dependencies: [toml]
@@ -36,7 +36,7 @@ repos:
       - id: flake8
         args: [--max-line-length=119]
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.2
+    rev: v2.4.3
     hooks:
     - id: codespell
       additional_dependencies: [tomli]
