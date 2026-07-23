@@ -17,6 +17,9 @@ verify = [
     "toml == 0.10.2",
     "ruff == 0.16.0",
 ]
+create-verify = [
+    {include-group = "verify"},
+]
 test = [
     "pytest == 9.1.1",
     {include-group = "briefcase"},
