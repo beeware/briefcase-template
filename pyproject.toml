@@ -16,9 +16,13 @@ tox = [
 verify = [
     "toml == 0.10.2",
     "ruff == 0.16.0",
+    # Legacy; needed until we clean up .github
+    "flake8 == 7.3.0",
 ]
 create-verify = [
     {include-group = "verify"},
+    # Legacy; needed until we clean up .github
+    "black == 26.5.1",
 ]
 test = [
     "pytest == 9.1.1",
