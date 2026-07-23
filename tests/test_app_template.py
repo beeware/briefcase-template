@@ -93,12 +93,12 @@ test_sources = [
             "pyproject_table_iOS": SIMPLE_TABLE_CONTENT.format("iOS"),
             "pyproject_table_android": SIMPLE_TABLE_CONTENT.format("android"),
             "pyproject_table_web": SIMPLE_TABLE_CONTENT.format("web"),
-            "briefcase_version": "v0.3.16-2",
-            "template_source": "https://example.com/beeware/briefcase-template",
+            "briefcase_version": "v0.X.Y-2",
+            "template_source": "foo/bar",
             "template_branch": "my-branch",
         },
         '''\
-# This project was generated with v0.X.Y using template: a/b @ my-branch
+# This project was generated with v0.X.Y-2 using template: foo/bar @ my-branch
 [tool.briefcase]
 project_name = "Project Awesome"
 bundle = "com.example"
@@ -221,12 +221,12 @@ list = [
     "value",
 ]
 """,
-            "briefcase_version": "v0.3.16-3",
-            "template_source": "https://example.com/beeware/briefcase-template",
+            "briefcase_version": "v0.X.Y-3",
+            "template_source": "foo/bar",
             "template_branch": "my-branch",
         },
         '''\
-# This project was generated with v0.X.Y using template: a/b @ my-branch
+# This project was generated with v0.X.Y-3 using template: foo/bar @ my-branch
 [tool.briefcase]
 project_name = "Project Awesome"
 bundle = "com.example"
@@ -326,12 +326,12 @@ field = "pyproject_extra_content_one"
 field = "pyproject_extra_content_two"
 
 """,
-            "briefcase_version": "v0.3.16-3",
-            "template_source": "https://example.com/beeware/briefcase-template",
+            "briefcase_version": "v0.X.Y-3",
+            "template_source": "foo/bar",
             "template_branch": "my-branch",
         },
         '''\
-# This project was generated with v0.X.Y using template: a/b @ my-branch
+# This project was generated with v0.X.Y-3 using template: foo/bar @ my-branch
 [tool.briefcase]
 project_name = "Project Awesome"
 bundle = "com.example"
