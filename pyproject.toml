@@ -59,6 +59,7 @@ ignore = [
 [tool.rumdl]
 flavor = "mkdocs"
 include = ["**/*.md"]
+exclude = ["CODE_OF_CONDUCT.md"]
 respect-gitignore = true
 force-exclude = true
 
