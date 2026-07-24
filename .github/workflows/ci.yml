@@ -47,8 +47,8 @@ jobs:
     - name: Test with tox
       run: tox
 
-  verify-projects:
-    name: Verify project
+  verify-create:
+    name: Verify app creation
     needs: unit-tests
     uses: beeware/.github/.github/workflows/app-create-verify.yml@main
     with:
@@ -60,8 +60,8 @@ jobs:
         framework: [ "toga", "pyside6", "pygame", "console" ]
         runner-os: [ "macos-15", "ubuntu-latest", "windows-latest" ]
 
-  verify-apps:
-    name: Build app
+  verify-build:
+    name: Verify app build
     needs: unit-tests
     uses: beeware/.github/.github/workflows/app-build-verify.yml@main
     with:

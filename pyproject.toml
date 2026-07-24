@@ -1,3 +1,8 @@
+[project]
+name = "briefcase-template"
+version = "1.0.0"
+requires_python = ">=3.10"
+
 [dependency-groups]
 briefcase = [
     "briefcase @ git+https://github.com/beeware/briefcase",  # provides cookiecutter
@@ -6,15 +11,18 @@ pre-commit = [
     "pre-commit == 4.6.0",
 ]
 tox = [
-    "tox == 4.56.4",
+    "tox-uv == 1.35.2",
 ]
 verify = [
     "toml == 0.10.2",
+    "ruff == 0.16.0",
+    # Legacy; needed until we clean up .github
     "flake8 == 7.3.0",
 ]
 create-verify = [
-    "black == 26.5.1",
     {include-group = "verify"},
+    # Legacy; needed until we clean up .github
+    "black == 26.5.1",
 ]
 test = [
     "pytest == 9.1.1",
@@ -27,3 +35,58 @@ dev = [
     {include-group = "tox"},
     {include-group = "test"},
 ]
+
+
+[tool.ruff.lint]
+# In addition to the default rules, these additional rules will be used:
+extend-select = [
+    "E",      # pycodestyle
+    "W",      # pycodestyle
+    "F",      # pyflakes
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "YTT",    # flake8-2020
+    "ASYNC",  # flake8-async
+    "C4",     # flake8-comprehensions
+    "I",      # isort
+    "RUF",    # ruff-specific rules
+    "PT",     # flake8-pytest-style
+    "FURB",   # refurb
+    "ISC",    # flake8-implicit-str-concat
+    "PGH",    # pygrep-hooks
+    "PIE",    # flake8-pie
+    "SIM",    # flake8-simplify
+]
+
+ignore = [
+    "SIM105",  # use `contextlib.suppress` (too opinionated)
+    "SIM108",  # replace if-else with ternary operator (too opinionated)
+]
+
+[tool.rumdl]
+flavor = "mkdocs"
+include = ["**/*.md"]
+exclude = ["CODE_OF_CONDUCT.md"]
+respect-gitignore = true
+force-exclude = true
+
+# Disable rules:
+# MD013: Line length - flagging on mkdocstrings content
+# MD014: Forces commands in codeblocks to show output
+# MD042: Empty link - buggy, still flagging on valid MkDocs formatting
+# MD052: Reference link not found - buggy, flagging on valis MkDocs links
+disable = ["MD014", "MD042", "MD052"]
+
+[tool.rumdl.MD013]  # Line length
+line_length = 999999  # Force reflow to paragraph content to remove linebreaks
+reflow = true
+reflow_mode = "normalize"
+
+[tool.rumdl.MD026]  # Remove punctuation at the end of headings
+punctuation = ",;:"
+
+[tool.rumdl.MD033]  # No inline HTML
+allowed_elements = ["nospell",]  # pyspelling inline disable tag
+
+[tool.rumdl.MD046]
+style = "fenced"
