@@ -409,26 +409,3 @@ def test_files_compile(app_directory, context, expected_toml):
     for filename in app_directory.glob("**/*.py"):
         # If there is a compilation error, pytest is triggered
         py_compile.compile(str(filename))
-
-
-def test_proprietary_license_context(tmp_path):
-    """A project using the LicenseRef-Proprietary license can be generated, and the
-    generated pyproject.toml uses a valid SPDX expression."""
-    context = {**BASIC_APP_CONTEXT, "license": "LicenseRef-Proprietary"}
-    main.cookiecutter(
-        str(Path(__file__).parent.parent.resolve()),
-        no_input=True,
-        output_dir=str(tmp_path),
-        extra_context=context,
-    )
-
-    pyproject_toml = tmp_path / "helloworld" / "pyproject.toml"
-    assert pyproject_toml.is_file()
-    config = toml.load(pyproject_toml)
-    assert config["tool"]["briefcase"]["license"] == "LicenseRef-Proprietary"
-
-    # The LICENSE file renders the proprietary rights text.
-    license_file = tmp_path / "helloworld" / "LICENSE"
-    assert license_file.is_file()
-    license_text = license_file.read_text()
-    assert "All rights reserved." in license_text

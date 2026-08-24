@@ -19,9 +19,8 @@
         "GPL-2.0+",
         "GPL-3.0",
         "GPL-3.0+",
-        "Proprietary",
         "LicenseRef-Proprietary",
-        "Other"
+        "LicenseRef-Other"
     ],
     "test_framework": [
         "pytest",

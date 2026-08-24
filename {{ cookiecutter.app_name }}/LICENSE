@@ -124,7 +124,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-{% elif cookiecutter.license in ('Proprietary', 'LicenseRef-Proprietary') %}
+{% elif cookiecutter.license == 'LicenseRef-Proprietary' %}
 Copyright (C) {% now 'local', '%Y' %} {{ cookiecutter.author }}
 
 All rights reserved.
