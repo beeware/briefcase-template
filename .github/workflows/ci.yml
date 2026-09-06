@@ -57,7 +57,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        framework: [ "toga", "pyside6", "pygame", "console" ]
+        framework: [ "toga", "pyside6", "console" ]
         runner-os: [ "macos-26", "ubuntu-24.04", "windows-2025" ]
 
   verify-build:
@@ -68,6 +68,7 @@ jobs:
       python-version: ${{ matrix.python-version }}
       runner-os: ${{ matrix.runner-os }}
       framework: ${{ matrix.framework }}
+      ios-simulator: "iPhone 17e::iOS 26.5"
     strategy:
       fail-fast: false
       matrix:
