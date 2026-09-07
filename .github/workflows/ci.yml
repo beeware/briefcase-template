@@ -80,5 +80,5 @@ jobs:
           - python-version: "3.12"
 
           # Ubuntu must always use the system Python
-          - runner-os: ubuntu-latest
+          - runner-os: ubuntu-24.04
             python-version: system
