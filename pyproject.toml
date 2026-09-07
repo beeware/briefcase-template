@@ -8,14 +8,14 @@ briefcase = [
     "briefcase @ git+https://github.com/beeware/briefcase",  # provides cookiecutter
 ]
 pre-commit = [
-    "pre-commit == 4.6.1",
+    "pre-commit == 4.6.2",
 ]
 tox = [
     "tox-uv == 1.36.0",
 ]
 verify = [
     "toml == 0.10.2",
-    "ruff == 0.16.0",
+    "ruff == 0.16.5",
     # Legacy; needed until we clean up .github
     "flake8 == 7.3.0",
 ]
