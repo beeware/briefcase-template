@@ -31,3 +31,7 @@ repos:
     - id: codespell
       additional_dependencies: [tomli]
       args: ["--skip=CODE_OF_CONDUCT.md"]
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.29.0
+    hooks:
+      - id: zizmor

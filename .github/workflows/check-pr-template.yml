@@ -4,6 +4,8 @@ on:
   pull_request:
     types: [opened, edited, reopened, synchronize]
 
+permissions: {}
+
 jobs:
   check-pr-template:
     name: Check PR template
