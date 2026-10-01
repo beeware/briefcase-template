@@ -7,8 +7,8 @@ on:
       - reopened
       - transferred
 
-permissions: {}
-
+permissions:
+  contents: read
 jobs:
   add-to-project:
     name: Add issue to BeeWare project
