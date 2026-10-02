@@ -22,6 +22,8 @@ jobs:
   pre-commit:
     name: Pre-commit checks
     uses: beeware/.github/.github/workflows/pre-commit-run.yml@main
+    permissions:
+      contents: read
     with:
       pre-commit-source: --group pre-commit
 
@@ -29,12 +31,16 @@ jobs:
     name: Unit tests
     needs: pre-commit
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
     - name: Checkout
-      uses: actions/checkout@v7.0.1
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      with:
+        persist-credentials: false
 
     - name: Set up Python
-      uses: actions/setup-python@v7.0.0
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
       with:
         python-version: "3.X"
 
@@ -51,6 +57,8 @@ jobs:
     name: Verify app creation
     needs: unit-tests
     uses: beeware/.github/.github/workflows/app-create-verify.yml@main
+    permissions:
+      contents: read
     with:
       runner-os: ${{ matrix.runner-os }}
       framework: ${{ matrix.framework }}
@@ -64,6 +72,8 @@ jobs:
     name: Verify app build
     needs: unit-tests
     uses: beeware/.github/.github/workflows/app-build-verify.yml@main
+    permissions:
+      contents: read
     with:
       python-version: ${{ matrix.python-version }}
       runner-os: ${{ matrix.runner-os }}
