@@ -1,7 +1,7 @@
 [project]
 name = "briefcase-template"
 version = "1.0.0"
-requires_python = ">=3.10"
+requires_python = ">=3.11"
 
 [dependency-groups]
 briefcase = [
@@ -14,15 +14,7 @@ tox = [
     "tox-uv == 1.37.0",
 ]
 verify = [
-    "toml == 0.10.2",
     "ruff == 0.17.2",
-    # Legacy; needed until we clean up .github
-    "flake8 == 7.4.1",
-]
-create-verify = [
-    {include-group = "verify"},
-    # Legacy; needed until we clean up .github
-    "black == 26.10.1",
 ]
 test = [
     "pytest == 9.1.1",
