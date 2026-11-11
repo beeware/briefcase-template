@@ -1,9 +1,9 @@
 import py_compile
 import subprocess
+import tomllib
 from pathlib import Path
 
 import pytest
-import toml
 from cookiecutter import main
 
 BASIC_APP_CONTEXT = {
@@ -386,7 +386,8 @@ def test_parse_pyproject_toml(app_directory, context, expected_toml):
     """Test for errors in parsing the generated pyproject.toml file."""
     pyproject_toml = app_directory / "helloworld" / "pyproject.toml"
     assert pyproject_toml.is_file()  # check pyproject.toml exists
-    toml.load(pyproject_toml)  # any error in parsing will trigger pytest failure
+    with pyproject_toml.open("rb") as f:
+        tomllib.load(f)  # Any error in parsing will trigger pytest failure.
     assert expected_toml == pyproject_toml.read_text()
 
 
