@@ -16,10 +16,8 @@ BASIC_APP_CONTEXT = {
     "module_name": "{{ cookiecutter.app_name|lower|replace('-', '_') }}",
     "project_name": "Project Awesome",
     "description": "An app that does lots of stuff",
-    "copyright_holder": "Jane Developer",
-    "authors": (
-        'authors = [\n    {name = "Jane Developer", email = "jane@example.com"},\n]'
-    ),
+    "pep621": {"authors": [{"name": "Jane Developer", "email": "jane@example.com"}]},
+    "declare_authors": True,
     "bundle": "com.example",
     "url": "https://example.com",
     "license": "BSD-3-Clause",

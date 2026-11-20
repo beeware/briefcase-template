@@ -7,8 +7,12 @@
     "test_source_dir": "tests",
     "project_name": "Project Awesome",
     "description": "An app that does lots of stuff",
-    "copyright_holder": "Jane Developer",
-    "authors": "authors = [\n    {name = \"Jane Developer\", email = \"jane@example.com\"},\n]",
+    "pep621": {
+        "authors": [
+            {"name": "Jane Developer", "email": "jane@example.com"}
+        ]
+    },
+    "declare_authors": true,
     "bundle": "com.example",
     "url": "https://example.com",
     "license": [
@@ -48,7 +52,8 @@
     "template_source": "Not provided",
     "template_branch": "Not provided",
     "_extensions": [
-        "briefcase.integrations.cookiecutter.TOMLEscape"
+        "briefcase.integrations.cookiecutter.TOMLEscape",
+        "briefcase.integrations.cookiecutter.TextExtension"
     ],
     "_jinja2_env_vars": {"lstrip_blocks": true, "trim_blocks": true}
 }
