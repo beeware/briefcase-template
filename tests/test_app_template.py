@@ -16,8 +16,8 @@ BASIC_APP_CONTEXT = {
     "module_name": "{{ cookiecutter.app_name|lower|replace('-', '_') }}",
     "project_name": "Project Awesome",
     "description": "An app that does lots of stuff",
-    "author": "Jane Developer",
-    "author_email": "jane@example.com",
+    "pep621": {"authors": [{"name": "Jane Developer", "email": "jane@example.com"}]},
+    "declare_authors": True,
     "bundle": "com.example",
     "url": "https://example.com",
     "license": "BSD-3-Clause",
@@ -57,8 +57,9 @@ version = "0.0.1"
 url = "https://example.com"
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
-author = "Jane Developer"
-author_email = "jane@example.com"
+authors = [
+    {name = "Jane Developer", email = "jane@example.com"},
+]
 
 [tool.briefcase.app.helloworld]
 formal_name = "Hello World"
@@ -106,8 +107,9 @@ version = "0.0.1"
 url = "https://example.com"
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
-author = "Jane Developer"
-author_email = "jane@example.com"
+authors = [
+    {name = "Jane Developer", email = "jane@example.com"},
+]
 
 [tool.briefcase.app.helloworld]
 formal_name = "Hello World"
@@ -234,8 +236,9 @@ version = "0.0.1"
 url = "https://example.com"
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
-author = "Jane Developer"
-author_email = "jane@example.com"
+authors = [
+    {name = "Jane Developer", email = "jane@example.com"},
+]
 
 field = "pyproject_table_briefcase_extra_content"
 answer = 42
@@ -339,8 +342,9 @@ version = "0.0.1"
 url = "https://example.com"
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
-author = "Jane Developer"
-author_email = "jane@example.com"
+authors = [
+    {name = "Jane Developer", email = "jane@example.com"},
+]
 field = "pyproject_table_briefcase_extra_content"
 
 [tool.briefcase.app.helloworld]
