@@ -6,7 +6,7 @@ version = "0.0.1"
 url = "{{ cookiecutter.url }}"
 license = "{{ cookiecutter.license }}"
 license-files = ["LICENSE"]
-{% if cookiecutter.declare_authors %}
+{% if cookiecutter.pep621.authors %}
 authors = [
 {% for author in cookiecutter.pep621.authors %}
     {{ author|toml_inline_table }},

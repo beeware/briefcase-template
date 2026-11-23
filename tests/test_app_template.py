@@ -17,7 +17,6 @@ BASIC_APP_CONTEXT = {
     "project_name": "Project Awesome",
     "description": "An app that does lots of stuff",
     "pep621": {"authors": [{"name": "Jane Developer", "email": "jane@example.com"}]},
-    "declare_authors": True,
     "bundle": "com.example",
     "url": "https://example.com",
     "license": "BSD-3-Clause",

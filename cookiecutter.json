@@ -12,7 +12,6 @@
             {"name": "Jane Developer", "email": "jane@example.com"}
         ]
     },
-    "declare_authors": true,
     "bundle": "com.example",
     "url": "https://example.com",
     "license": [
