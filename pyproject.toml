@@ -5,7 +5,8 @@ requires_python = ">=3.11"
 
 [dependency-groups]
 briefcase = [
-    "briefcase @ git+https://github.com/beeware/briefcase",  # provides cookiecutter
+    # TEMPORARY: points at beeware/briefcase#3131. Revert before merging
+    "briefcase @ git+https://github.com/garvitshrma/briefcase@authors-pep621",  # provides cookiecutter
 ]
 pre-commit = [
     "pre-commit == 4.7.0",
